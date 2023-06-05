@@ -3,9 +3,9 @@ class OffersController < ApplicationController
 
   # end
 
-  # def index
-
-  # end
+  def index
+    @offers = Offer.all
+  end
 
   # def create
   #   @offer = Offer.new(offer_params)
