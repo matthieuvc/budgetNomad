@@ -1,26 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require 'faker'
 
+# DESTROYING
 
-puts "let's create some hotel offer "
+puts "Cleaning offers database..."
+Offer.destroy_all
 
-url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=40.730610&longitude=-73.935242&checkIn=%3CREQUIRED%3E&checkOut=%3CREQUIRED%3E&pageNumber=1&currencyCode=USD")
+puts "Cleaning hotels database..."
+Hotel.destroy_all
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
+puts "Cleaning flights database..."
+Flight.destroy_all
 
-request = Net::HTTP::Get.new(url)
-request["X-RapidAPI-Key"] = 'b4b3100277mshe0370ca0aea55ddp14b73bjsn4164eba75913'
-request["X-RapidAPI-Host"] = 'tripadvisor16.p.rapidapi.com'
+puts "Cleaning users database..."
+User.destroy_all
 
-hotel_response = http.request(request)
-puts response.read_body
+# CREATING
 
-flight_response = http.request(request).read_body
-flight_response_ok = JSON.parse(response)
-puts "hotel  offer has been created succesfully"
+puts "Creating 5 new users..."
+5.times do
+  User.create!(email: Faker::Internet.email, password: "123456")
+end
+puts "Creating 5 new offers..."
+5.times do
+  offer = Offer.create!(destination: Faker::Address.city, budget: Faker::Number.decimal(l_digits: 2), start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period, user_id: User.all.sample.id)
+  puts "Creating  new hotels..."
+    Hotel.create!(price: Faker::Number.decimal(l_digits: 2), name: Faker::Coffee.blend_name, address: Faker::Address.street_address, offer_id: offer.id)
+
+  puts "Creating  new flights..."
+    Flight.create!(price: Faker::Number.decimal(l_digits: 2), departure: Faker::Date.in_date_period, arrival: Faker::Date.in_date_period, offer_id: offer.id)
+    Flight.create!(price: Faker::Number.decimal(l_digits: 2), departure: Faker::Date.in_date_period, arrival: Faker::Date.in_date_period, offer_id: offer.id)
+end

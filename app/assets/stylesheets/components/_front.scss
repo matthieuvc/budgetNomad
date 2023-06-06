@@ -1,0 +1,25 @@
+.background-image {
+  background-size: cover;
+  background-image: url(https://www.cvc.com.br/imageproc/image/upload/f_auto,q_auto/v1/CVC/home/bg_motor_cvc_desktop.png);
+  background-position: center center;
+  min-height: 100px;
+}
+
+.banner-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.cover-content {
+  padding: 16px 24px 16px;
+  position: relative;
+  color: white;
+}
