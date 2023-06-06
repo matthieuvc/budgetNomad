@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
   belongs_to :user
-  belongs_to :hotel
-  belongs_to :flight
+  has_many :hotels
+  has_many :flights
 end

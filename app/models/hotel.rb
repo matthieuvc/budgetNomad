@@ -1,3 +1,3 @@
 class Hotel < ApplicationRecord
-  has_many :offers
+  belongs_to :offer
 end
