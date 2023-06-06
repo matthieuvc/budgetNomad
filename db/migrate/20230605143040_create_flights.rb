@@ -4,6 +4,7 @@ class CreateFlights < ActiveRecord::Migration[7.0]
       t.float :price
       t.datetime :departure
       t.datetime :arrival
+      t.references :offer, null: false, foreign_key: true
 
       t.timestamps
     end

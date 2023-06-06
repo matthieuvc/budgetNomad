@@ -4,6 +4,7 @@ class CreateHotels < ActiveRecord::Migration[7.0]
       t.float :price
       t.string :name
       t.string :address
+      t.references :offer, null: false, foreign_key: true
 
       t.timestamps
     end

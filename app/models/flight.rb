@@ -1,3 +1,3 @@
 class Flight < ApplicationRecord
-  has_many :offers
+  belongs_to :offer
 end
