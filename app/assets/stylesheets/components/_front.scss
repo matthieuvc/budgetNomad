@@ -1,3 +1,5 @@
+// BACKGROUND IMAGES
+
 .background-image {
   background-size: cover;
   background-image: url(https://www.cvc.com.br/imageproc/image/upload/f_auto,q_auto/v1/CVC/home/bg_motor_cvc_desktop.png);
@@ -23,3 +25,76 @@
   position: relative;
   color: white;
 }
+
+// SELECT PROCESS
+
+.progress-bar {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.2);
+}
+
+.offers-card {
+  cursor: pointer;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  width: 205px;
+  height: 207px;
+}
+
+.offers-card-content {
+
+}
+
+.offers-card-content-price {
+  border-left: 1px solid rgb(231, 231, 231);
+  padding: 16px;
+}
+
+.flights-card {
+  cursor: pointer;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  width: 682px;
+  height: fit-content;
+}
+
+.hotels-card {
+  cursor: pointer;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  width: 320px;
+  height: fit-content;
+}
+
+.hotels-card-pic {
+  height: 150px;
+  width: 320px;
+  padding-bottom: 16px;
+}
+
+.thin-border-card {
+  background: rgb(162, 162, 162);
+  height: 1px;
+  margin-bottom: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
