@@ -1,14 +1,33 @@
 class OffersController < ApplicationController
 
+  def index
+    @offers = Offer.all
+
+    if params[:destination].present?
+      @offers = @offers.where(destination: params[:destination])
+    end
+
+    if params[:start_date].present? && params[:end_date].present?
+      start_date = Date.parse(params[:start_date])
+      end_date = Date.parse(params[:end_date])
+      @offers = @offers.where(start_date: start_date..end_date)
+    end
+
+    if params[:min_budget].present? && params[:max_budget].present?
+      min_budget = params[:min_budget].to_f
+      max_budget = params[:max_budget].to_f
+      @offers = @offers.where(budget: min_budget..max_budget)
+    end
+
+    @flight_data =  [{:departure_time=>"2023-06-07T20:10:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T22:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.2}, {:departure_time=>"2023-06-07T15:45:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T17:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>67.52}, {:departure_time=>"2023-06-07T21:00:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>69}, {:departure_time=>"2023-06-07T22:35:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:45:00+05:30", :arrival_location=>"GOI", :price_per_passenger=>113.44}, {:departure_time=>"2023-06-07T22:05:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T00:55:00+05:30", :arrival_location=>"ATQ", :price_per_passenger=>123.97}, {:departure_time=>"2023-06-07T23:25:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T07:25:00+08:00", :arrival_location=>"KUL", :price_per_passenger=>657.45}]
+    @hotel_data = [{:hotel_title=>"1. Homewood Suites by Hilton New York/Midtown Manhattan Times Square-South, NY", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/74/3b/fe/exterior.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"2. Hampton Inn Manhattan / Times Square Central", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/7f/cb/1f/exterior.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"3. Ace Hotel Brooklyn", :hotel_rating=>5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/88/65/31/the-lobby-at-ace-hotel.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"4. Pod 51 Hotel", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/9d/6c/d4/pod-roof.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"5. Opera House Hotel", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/7f/46/ba/superior-king--v12464873.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"6. Truss Hotel Times Square", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/c3/b0/bf/truss-hotel.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"7. Crowne Plaza Times Square Manhattan, an IHG Hotel", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/0e/d2/62/the-crowne-plaza-times.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"8. YOTEL New York Times Square", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/99/35/6e/yotel-new-york-entrance.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"9. Envue, Autograph Collection", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/37/c1/85/nohu-rooftop-bar-restaurant.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"10. Hampton Inn New York - LaGuardia Airport", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/79/a7/11/exterior.jpg?w={width}&h={height}&s=1"}]
+
+  end
   def show
     @offer = Offer.find(params[:id])
   end
 
-  def index
-    @offers = Offer.all
-    @flight_data =  [{:departure_time=>"2023-06-07T20:10:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T22:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.2}, {:departure_time=>"2023-06-07T15:45:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T17:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>67.52}, {:departure_time=>"2023-06-07T21:00:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>69}, {:departure_time=>"2023-06-07T22:35:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:45:00+05:30", :arrival_location=>"GOI", :price_per_passenger=>113.44}, {:departure_time=>"2023-06-07T22:05:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T00:55:00+05:30", :arrival_location=>"ATQ", :price_per_passenger=>123.97}, {:departure_time=>"2023-06-07T23:25:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T07:25:00+08:00", :arrival_location=>"KUL", :price_per_passenger=>657.45}]
-    @hotel_data = [{:hotel_title=>"1. Homewood Suites by Hilton New York/Midtown Manhattan Times Square-South, NY", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/74/3b/fe/exterior.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"2. Hampton Inn Manhattan / Times Square Central", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/7f/cb/1f/exterior.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"3. Ace Hotel Brooklyn", :hotel_rating=>5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/88/65/31/the-lobby-at-ace-hotel.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"4. Pod 51 Hotel", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/9d/6c/d4/pod-roof.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"5. Opera House Hotel", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/7f/46/ba/superior-king--v12464873.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"6. Truss Hotel Times Square", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/c3/b0/bf/truss-hotel.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"7. Crowne Plaza Times Square Manhattan, an IHG Hotel", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/0e/d2/62/the-crowne-plaza-times.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"8. YOTEL New York Times Square", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/99/35/6e/yotel-new-york-entrance.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"9. Envue, Autograph Collection", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/37/c1/85/nohu-rooftop-bar-restaurant.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"10. Hampton Inn New York - LaGuardia Airport", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/79/a7/11/exterior.jpg?w={width}&h={height}&s=1"}]
-  end
+
 
   def new
     @offer = Offer.new
