@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
+    raise
   end
 
   def index
@@ -15,7 +16,6 @@ class OffersController < ApplicationController
   end
 
   def create
-    raise
     @offer = Offer.new(offer_params)
     @offer.user = current_user
 
