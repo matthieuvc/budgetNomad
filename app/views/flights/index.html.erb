@@ -1,0 +1,55 @@
+<h3>Our avaliables flights</h3>
+
+  <% @flight_data.each do |flight|%>
+
+      <div class="d-flex">
+        <div class="flights-card">
+          <div class="d-flex justify-content-between">
+
+            <div>
+
+              <div class="offers-card-content">
+                <h6><strong>DEPARTURE</strong></h6>
+                <div class="d-flex">
+                  <div class="me-5">
+                    <p> <%= flight[:departure_time]%> </p>
+                    <p> <%=flight[:depart_location]%> </p>
+                  </div>
+                  <div>
+                    <p> <%=flight[:arrival_time]%> </p>
+                    <p> <%= flight[:arrival_location]%> </p>
+                    <%= button_to "book", {:controller => "flights", :action => "create", flight: flight}, method: :post %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="thin-border-card">
+              </div>
+
+              <div class="offers-card-content">
+                <h6><strong>RETURN</strong></h6>
+                <div class="d-flex">
+                  <div class="me-5">
+                    <p><%= flight[:departure_time]%></p>
+                    <p><%= flight[:depart_location]%></p>
+                  </div>
+                  <div>
+                    <p><%= flight[:arrival_time]%></p>
+                    <p><%= flight[:arrival_location]%></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="offers-card-content-price text-end">
+              <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
+              <h6>Price</h6>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
