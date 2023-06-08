@@ -88,13 +88,15 @@
   margin-bottom: 16px;
 }
 
+// USER STUFF
 
-
-
-
-
-
-
-
-
-
+.content-card {
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 40px 100px 40px 30px;
+  justify-content: space-between;
+}
