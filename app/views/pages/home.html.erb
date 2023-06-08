@@ -29,12 +29,13 @@
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  <%= form_tag offers_path, method: :get do %>
-  <%= text_field_tag :destination, params[:destination], placeholder: "Destination" %>
+  <%= form_tag flights_path, method: :get do %>
+   <%= text_field_tag :localisation, params[:localisation], placeholder: "From" %>
+  <%= text_field_tag :destination, params[:destination], placeholder: "To" %>
   <%= date_field_tag :start_date, params[:start_date], placeholder: "Start Date", id: "start_date_input" %>
   <%= date_field_tag :end_date, params[:end_date], placeholder: "End Date", id: "end_date_input", min: Date.current %>
-  <%= number_field_tag :min_budget, params[:min_budget], placeholder: "Min Budget" %>
-  <%= number_field_tag :max_budget, params[:max_budget], placeholder: "Max Budget" %>
+  <%= text_field_tag :min_budget, params[:min_budget], placeholder: "Min Budget" %>
+  <%= text_field_tag :max_budget, params[:max_budget], placeholder: "Max Budget" %>
   <%= submit_tag "Search" %>
 <% end %>
 
