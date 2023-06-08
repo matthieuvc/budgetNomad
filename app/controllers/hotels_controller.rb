@@ -4,18 +4,35 @@ class HotelsController < ApplicationController
   require 'json'
 
   def index
-    create_hotel
+    @offer = Offer.last
+    @hotel_data = create_hotel
+  end
+
+  def new
+    @hotel = Hotel.new
+  end
+
+  def create
+    hotel_details = {
+      #add price and adress
+      name: hotel_params["hotel_title"].to_s,
+      offer: Offer.last
+    }
+    @hotel = Hotel.new(hotel_details)
+    @hotel.save
+    redirect_to offer_path(@hotel.offer)
   end
 
 
   def create_hotel
     results = Geocoder.search(destination)
-  if results.present?
-    latitude = results.first.latitude
-    longitude = results.first.longitude
-  else
-    return puts " Error message"
-  end
+    
+    if results.present?
+      latitude = results.first.latitude
+      longitude = results.first.longitude
+    else
+      return puts " Error message"
+    end
 
 
     url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=#{latitude}&longitude=#{longitude}&checkIn=#{longitude}&checkOut=#{longitude}&pageNumber=1&currencyCode=EUR")
@@ -38,5 +55,10 @@ class HotelsController < ApplicationController
       }
     end
   end
+  
+  private
+  
+  def hotel_params
+    params.require(:hotel).permit(:name, :rating, :price, :address)
+  end
 end
-
