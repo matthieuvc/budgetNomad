@@ -1,0 +1,6 @@
+<h3>Our avaliables hotel</h3>
+
+  <% @hotel_data.each do |hotel|%>
+    <p> <%= hotel[:hotel_title]%> </p>
+    <%= button_to "book", {:controller => "hotels", :action => "create", hotel: hotel}, method: :post %>
+  <% end %>
