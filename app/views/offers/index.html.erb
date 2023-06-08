@@ -1,7 +1,3 @@
-<%# <% @offers.each do |offer| %>
-
-<%# end %>
-
 <%# CITIES CARD TO APPLY LATER  %>
 
   <%# <div class="d-flex">
@@ -15,107 +11,77 @@
     </div>
   </div> %>
 
-<div class="container">
-  <h6>Flight + Hotel to: Your destination</h6>
+
+
+<div class="content_page">
+  <h6>Let's personalize your package!</h6>
 
 <%# SELECTING THE FLIGHT %>
 
-  <h3>Our avaliables flights</h3>
-
-  <%= simple_form_for @offer do |f| %>
+  <h3><i class="me-3 fa-solid fa-earth-americas"></i>1º STEP: Select one avaliable flight</h3>
 
   <%  @flight_data =  [{:departure_time=>"2023-06-07T20:10:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T22:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.2}, {:departure_time=>"2023-06-07T15:45:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T17:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>67.52}, {:departure_time=>"2023-06-07T21:00:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>69}, {:departure_time=>"2023-06-07T22:35:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:45:00+05:30", :arrival_location=>"GOI", :price_per_passenger=>113.44}, {:departure_time=>"2023-06-07T22:05:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T00:55:00+05:30", :arrival_location=>"ATQ", :price_per_passenger=>123.97}, {:departure_time=>"2023-06-07T23:25:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T07:25:00+08:00", :arrival_location=>"KUL", :price_per_passenger=>657.45}] %>
   <% @flight_data.each_with_index do |flight, index|%>
-    <%= f.input :destination, as: :boolean, checked_value: flight, unchecked_value: 'hihihihihihi' %>
 
   <div>
+    <div class="d-flex">
+    <div class="flights-card">
+      <div class="d-flex justify-content-between">
 
-        <div class="d-flex">
-        <div class="flights-card">
-          <div class="d-flex justify-content-between">
+        <div>
 
-            <div>
-
-              <div class="offers-card-content">
-                <h6><strong>DEPARTURE</strong></h6>
-                <div class="d-flex">
-                  <div class="me-5">
-                    <p> <%= flight[:departure_time]%> </p>
-                    <p> <%=flight[:depart_location]%> </p>
-                  </div>
-                  <div>
-                    <p> <%=flight[:arrival_time]%> </p>
-                    <p> <%= flight[:arrival_location]%> </p>
-                  </div>
-                </div>
+          <div class="offers-card-content">
+            <h6><strong>DEPARTURE</strong></h6>
+            <div class="d-flex">
+                <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
+              <div class="me-5">
+                <p> <%= flight[:departure_time]%> </p>
+                <%# .start_date.strftime("%b %e, %l:%M %p") TO ADD THE RIGHT FORMAT AT THE TIME %>
+                <p> <%=flight[:depart_location]%> </p>
               </div>
 
-              <div class="thin-border-card">
-              </div>
-
-              <div class="offers-card-content">
-                <h6><strong>RETURN</strong></h6>
-                <div class="d-flex">
-                  <div class="me-5">
-                    <p><%= flight[:departure_time]%></p>
-                    <p><%= flight[:depart_location]%></p>
-                  </div>
-                  <div>
-                    <p><%= flight[:arrival_time]%></p>
-                    <p><%= flight[:arrival_location]%></p>
-                  </div>
-                </div>
+                <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+              <div>
+                <p> <%=flight[:arrival_time]%> </p>
+                <p> <%= flight[:arrival_location]%> </p>
               </div>
             </div>
+          </div>
 
+          <div class="thin-border-card"></div>
 
-            <div class="offers-card-content-price text-end">
-              <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
-              <h6>Price</h6>
+          <div class="offers-card-content">
+            <h6><strong>RETURN</strong></h6>
+            <div class="d-flex">
+                <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
+              <div class="me-5">
+                <p><%= flight[:departure_time]%></p>
+                <p><%= flight[:depart_location]%></p>
+              </div>
+                <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+              <div>
+                <p><%= flight[:arrival_time]%></p>
+                <p><%= flight[:arrival_location]%></p>
+              </div>
             </div>
+          </div>
+        </div>
 
+
+        <div class="offers-card-content-price d-flex align-content-between flex-wrap justify-content-end">
+          <div>
+          <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
+          <%# .ceil(2) TO SHOW THE LAST 2 NUMBERS IN THE FLOAT VALUE %>
+          <h6 class="text-end">Price</h6>
+          </div>
+
+          <div>
+            <button class="btn_select">Select<div class="hoverEffect"><div></div></div></button>
           </div>
         </div>
       </div>
 
-    </label>
-  </div>
-
-<%end %>
-
-<%# SELECTING THE HOTEL %>
-
-  <h3>Our avaliables hotels</h3>
-
-  <% @hotel_data = [{:hotel_title=>"1. Homewood Suites by Hilton New York/Midtown Manhattan Times Square-South, NY", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/74/3b/fe/exterior.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"2. Hampton Inn Manhattan / Times Square Central", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/7f/cb/1f/exterior.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"3. Ace Hotel Brooklyn", :hotel_rating=>5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/88/65/31/the-lobby-at-ace-hotel.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"4. Pod 51 Hotel", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/9d/6c/d4/pod-roof.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"5. Opera House Hotel", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/7f/46/ba/superior-king--v12464873.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"6. Truss Hotel Times Square", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/c3/b0/bf/truss-hotel.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"7. Crowne Plaza Times Square Manhattan, an IHG Hotel", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/0e/d2/62/the-crowne-plaza-times.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"8. YOTEL New York Times Square", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/99/35/6e/yotel-new-york-entrance.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"9. Envue, Autograph Collection", :hotel_rating=>4.5, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/37/c1/85/nohu-rooftop-bar-restaurant.jpg?w={width}&h={height}&s=1"}, {:hotel_title=>"10. Hampton Inn New York - LaGuardia Airport", :hotel_rating=>4, :hotel_picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/26/79/a7/11/exterior.jpg?w={width}&h={height}&s=1"}]%>
-  <% @hotel_data.each_with_index do |hotel, index|%>
-    <%# <%= f.input :hotel_title, as: :boolean, checked_value: hotel, unchecked_value: 'hohohoho' %> %>
-
-
-  <div class="d-flex">
-    <div class="hotels-card">
-      <img src="<%= hotel[:hotel_picture]%>"  class="hotels-card-pic" alt="">
-
-      <div >
-        <h6><strong><%= hotel[:hotel_title]%></strong></h6>
-        <p> Location<%# hotel[:SOMETHING]%> </p>
-      </div>
-
-      <div class="d-flex justify-content-between">
-        <div>
-          <p><%= hotel[:hotel_rating]%> </p>
-        </div>
-
-        <div class="text-end">
-          <h4><strong><%# hotel[:SOMETHING]%>€</strong></h4>
-          <h6>Price</h6>
-        </div>
-      </div>
     </div>
   </div>
-  <% end %>
-
-  <%= f.button :submit %>
-<% end %>
-
+  <%end %>
 </div>
