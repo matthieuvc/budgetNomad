@@ -9,36 +9,36 @@ class FlightsController < ApplicationController
       {
         localisation: "BRUXELLES CHARLEROI AIRPORT",
         destination: "IBIZA AIRPORT",
-        start_date: "2023-06-07T20:10:00+05:30",
-        end_date: "2023-06-07T22:40:00+05:30",
-        price_per_passenger: 60.2
+        start_date: "2023-06-18 20:10:00",
+        end_date: "2023-06-18 22:10:00",
+        price_per_passenger: 60.29
       },
       {
         localisation: "BRUXELLES AIRPORT",
         destination: "BARCELONE AIRPORT",
-        start_date: "2023-06-07T15:45:00+05:30",
-        end_date: "2023-06-07T17:55:00+05:30",
+        start_date: "2023-06-18 15:45:00",
+        end_date: "2023-06-18 17:55:00",
         price_per_passenger: 67.52
       },
       {
         localisation: "BRUXELLES CHARLEROI AIRPORT",
         destination: "ALICANTE AIRPORT",
-        start_date: "2023-06-07",
-        end_date: "2023-06-07",
-        price_per_passenger: 69
+        start_date: "2023-06-18 15:45:00",
+        end_date: "2023-06-18 22:35:00",
+        price_per_passenger: 69.00
       },
       {
         localisation: "BRUXELLES AIRPORT",
         destination: "MADRID AIRPORT",
-        start_date: "2023-06-07T22:35:00+05:30",
-        end_date: "2023-06-07T23:45:00+05:30",
+        start_date: "2023-06-18 22:35:00",
+        end_date: "2023-06-18 23:45:00+",
         price_per_passenger: 113.44
       },
       {
         localisation: "BRUXELLES CHARLEROI AIRPORT",
         destination: "PALMA DE MALLORCA",
-        start_date: "2023-06-07T22:05:00+05:30",
-        end_date: "2023-06-08T00:55:00+05:30",
+        start_date: "2023-06-18 22:05:00",
+        end_date: "2023-06-18 00:55:00",
         price_per_passenger: 123.97
       }
     ]

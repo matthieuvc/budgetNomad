@@ -1,47 +1,51 @@
-<div class="content_page">
+<div class="container">
 
-  <h3>Our avaliables hotel</h3>
+  <div class="content_page">
 
-    <% @hotel_data.each do |hotel|%>
+    <h3>Our avaliables hotel</h3>
 
-      <div>
-          <div class="flights-card mt-3">
-            <div class="d-flex justify-content-between">
+      <% @hotel_data.each do |hotel|%>
 
-              <div class="offers-card-content w-100">
-                <div class="d-flex w-100">
-                  <div class="me-3">
-                    <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
-                  </div>
+        <div>
+            <div class="flights-card mt-3">
+              <div class="d-flex justify-content-between">
 
-                  <div class="w-100">
-                    <div class="w-100 pe-3 d-flex justify-content-between">
-                      <div><h4><strong> <%= hotel[:name]%> </strong></h4></div>
-                      <div><p><%= hotel[:rating]%><i class="fa-solid fa-star ms-2"></i></p></div>
+                <div class="offers-card-content w-100">
+                  <div class="d-flex w-100">
+                    <div class="me-3">
+                      <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
                     </div>
 
-                    <div>
-                    <p> <%= hotel[:address]%> </p>
+                    <div class="w-100">
+                      <div class="w-100 pe-3 d-flex justify-content-between">
+                        <div><h4><strong> <%= hotel[:name]%> </strong></h4></div>
+                        <div><p><%= hotel[:rating]%><i class="fa-solid fa-star ms-2"></i></p></div>
+                      </div>
+
+                      <div>
+                      <p> <%= hotel[:address]%> </p>
+                      </div>
                     </div>
+
+                  </div>
+                </div>
+
+                <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
+                  <div>
+                    <h4><strong><%= hotel[:price]%>€</strong></h4>
+                    <h6>Price</h6>
                   </div>
 
+                  <div>
+                    <%= button_to "Select", {:controller => "hotels", :action => "create", hotel: hotel, offer: params[:offer]},class: "btn_select", method: :post %>
+                  </div>
                 </div>
+
               </div>
-
-              <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
-                <div>
-                  <h4><strong><%= hotel[:price]%>€</strong></h4>
-                  <h6>Price</h6>
-                </div>
-
-                <div>
-                  <%= button_to "Select", {:controller => "hotels", :action => "create", hotel: hotel, offer: params[:offer]},class: "btn_select", method: :post %>
-                </div>
-              </div>
-
             </div>
+          <% end %>
           </div>
-        <% end %>
         </div>
-      </div>
+  </div>
+
 </div>
