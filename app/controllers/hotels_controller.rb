@@ -26,11 +26,15 @@ class HotelsController < ApplicationController
   def create
     hotel_details = {
       # add price and adress
-      name: hotel_params["hotel_title"].to_s,
-      offer: Offer.last
+      name: hotel_params["name"],
+      address: hotel_params["address"],
+      rating: hotel_params["rating"],
+      price: hotel_params["price"],
     }
     raise
     @hotel = Hotel.new(hotel_details)
+    @offer = Offer.find(params[:offer])
+    @hotel.offer = Offer.find(params[:offer])
     @hotel.save
     redirect_to offer_path(@hotel.offer)
   end
@@ -38,6 +42,24 @@ class HotelsController < ApplicationController
   #   url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=#{latitude}&longitude=#{longitude}&checkIn=#{longitude}&checkOut=#{longitude}&pageNumber=1&currencyCode=EUR")
   #   http = Net::HTTP.new(url.host, url.port)
   #   http.use_ssl = true
+
+
+  #   request = Net::HTTP::Get.new(url)
+  #   request["X-RapidAPI-Key"] = 'b4b3100277mshe0370ca0aea55ddp14b73bjsn4164eba75913'
+  #   request["X-RapidAPI-Host"] = 'tripadvisor16.p.rapidapi.com'
+
+  #   hotel_response = http.request(request).read_body
+  #   hotels = JSON.parse(hotel_response)
+
+  #   hotels["data"]["data"].first(10).map do |hotel|
+  #     {
+  #       name: hotel["secondaryInfo"],
+  #       rating: hotel["bubbleRating"]["rating"],
+  #       price: hotel["priceDetails"],
+  #       address: hotel["title"]
+  #     }
+  #   end
+  # end
 
   #   request = Net::HTTP::Get.new(url)
   #   request["X-RapidAPI-Key"] = 'b4b3100277mshe0370ca0aea55ddp14b73bjsn4164eba75913'

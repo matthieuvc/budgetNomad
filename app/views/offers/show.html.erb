@@ -1,37 +1,18 @@
+<h1>Offer Details</h1>
 <div class="content_page">
 
   <h1>Checkout your package!</h1>
 
-  <div class="d-flex justify-content-between">
-  <%# DISPLAY ONE COLUMN IN THE LEFT WITH THE ITEMS %>
-    <div>
-      <div class="body-resume-card">
-      <%# DISPLAY ONE FLIGHT ASSOCIATED TO THE USER %>
-        <% @offer.flights.each do |flight| %>
-        <p> <%= flight.price %> </p>
-        <p> <%= flight.departure %> </p>
-        <p> <%= flight.arrival %> </p>
+<h2>Flight</h2>
+<p>Departure: <%= @flight.departure %></p>
+<p>Departure Location: <%= @flight.depart_location %></p>
+<p>Arrival: <%= @flight.arrival %></p>
+<p>Arrival Location: <%= @flight.arrival_location%></p>
+<p>Price: <%= @flight.price %></p>
 
-        <% end %>
-      </div>
 
-      <%# <div class="body-resume-card> %>
-      <%# DISPLAY ONE HOTEL ASSOCIATED TO THE USER %>
-      <%# </div> %>
-  <%# DISPLAY ONE COLUMN IN THE RIGHT WITH AN SMALL RESUME OF PRICE AND FORM TO SUBMIT THE OFFER???? %>
-    <div>
-        <% @offer.hotels.each do |hotel| %>
-          <p> <%= hotel.price %> </p>
-          <p> <%= hotel.name %> </p>
-          <p> <%= hotel.address %> </p>
-      </div>
-
-        <% end %>
-    <div>
-      <div class="body-resume-card">
-        <p>Hihi</p>
-      </div>
-    </div>
-  </div>
-
-</div>
+<h2>Hotel</h2>
+<p>Name: <%= @hotel.name %></p>
+<p>Address: <%= @hotel.address %></p>
+<p>Rating: <%= @hotel.rating %></p>
+<p>Price: <%= @hotel.price %></p>

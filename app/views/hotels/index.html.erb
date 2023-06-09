@@ -34,7 +34,8 @@
                   <h6>Price</h6>
                 </div>
 
-                <div><%= button_to "Select", {:controller => "hotels", :action => "create", hotel: hotel}, class: "btn_select", method: :post %></div>
+                <div>
+                  <%= button_to "Select", {:controller => "hotels", :action => "create", hotel: hotel, offer: params[:offer]},class: "btn_select", method: :post %>
                 </div>
               </div>
 
