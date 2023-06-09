@@ -4,5 +4,4 @@ class Offer < ApplicationRecord
   has_one :flight
 
   geocoded_by :destination
-  after_validation :destination, if: :will_save_change_to_address?
 end

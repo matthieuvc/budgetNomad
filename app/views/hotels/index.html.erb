@@ -4,7 +4,7 @@
 
     <% @hotel_data.each do |hotel|%>
       <p> <%= hotel[:hotel_title]%> </p>
-      <%= button_to "book", {:controller => "hotels", :action => "create", hotel: hotel}, method: :post %>
+      <%= button_to "Select", {:controller => "hotels", :action => "create", hotel: hotel, offer: params[:offer]},class: "btn_select", method: :post %>
     <% end %>
 
 </div>

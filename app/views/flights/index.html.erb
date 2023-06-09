@@ -34,7 +34,7 @@
               <div class="offers-card-content-price text-end">
                 <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
                 <h6>Price</h6>
-                <%= button_to "Select", {:controller => "flights", :action => "create", flight: flight}, class: "btn_select", method: :post %>
+                <%= button_to "Select", {:controller => "flights", :action => "create", flight: flight, offer: params[:offer]}, class: "btn_select", method: :post %>
                 <%# <button class="btn_select">Select<div class="hoverEffect"><div></div></div></button> %>
               </div>
 
