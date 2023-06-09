@@ -103,8 +103,8 @@ class FlightsController < ApplicationController
 #     return airport2["data"][0]["airportCode"]
 #   end
 
-#   def fetch_flights(source_code, destination_code, date)
-#     url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchFlights?sourceAirportCode=#{source_code}&destinationAirportCode=#{destination_code}&date=#{date}&itineraryType=ONE_WAY&sortOrder=PRICE&numAdults=1&numSeniors=0&classOfService=ECONOMY&pageNumber=1&currencyCode=USD")
+
+
 
 #     http = Net::HTTP.new(url.host, url.port)
 #     http.use_ssl = true
