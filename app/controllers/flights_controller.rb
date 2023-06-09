@@ -6,9 +6,9 @@ class FlightsController < ApplicationController
 
   def index
     @offer = Offer.last
-    @flight_data =  [{:departure_time=>"2023-06-07T20:10:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T22:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.2}, {:departure_time=>"2023-06-07T15:45:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T17:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>67.52}, {:departure_time=>"2023-06-07T21:00:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>69}, {:departure_time=>"2023-06-07T22:35:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:45:00+05:30", :arrival_location=>"GOI", :price_per_passenger=>113.44}, {:departure_time=>"2023-06-07T22:05:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T00:55:00+05:30", :arrival_location=>"ATQ", :price_per_passenger=>123.97}, {:departure_time=>"2023-06-07T23:25:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T07:25:00+08:00", :arrival_location=>"KUL", :price_per_passenger=>657.45}]
-
-    #@flight_data = create_flight
+    @flight_data =  [{:departure=>"2023-06-09T16:00:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T18:20:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>59}, {:departure=>"2023-06-09T12:50:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T14:45:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T06:00:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T08:05:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T02:30:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T04:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.91}, {:departure=>"2023-06-09T08:45:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T10:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T22:50:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-10T01:00:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T05:00:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T07:15:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.91}, {:departure=>"2023-06-09T21:55:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-10T00:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T11:45:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T14:05:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T15:45:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T18:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}]
+    # airport_code = source_airport_code
+    #create_flight
   end
 
   def new
@@ -76,8 +76,9 @@ class FlightsController < ApplicationController
     dp = params[:localisation]
     ar = params[:destination]
 
-
-    url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchFlights?sourceAirportCode=#{dp}&destinationAirportCode=#{ar}&date=#{params[:start_date]}&itineraryType=ONE_WAY&sortOrder=PRICE&numAdults=1&numSeniors=0&classOfService=ECONOMY&pageNumber=1&currencyCode=USD")
+  def create_flight(source_code, destination_code, date)
+    # this is just a comment
+    url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchFlights?sourceAirportCode=#{source_code}&destinationAirportCode=#{destination_code}&date=#{date}&itineraryType=ONE_WAY&sortOrder=PRICE&numAdults=1&numSeniors=0&classOfService=ECONOMY&pageNumber=1&currencyCode=USD")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
