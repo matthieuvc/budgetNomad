@@ -6,6 +6,8 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
+    @flight = @offer.flight
+    @hotel = @offer.hotel
   end
 
   def new
@@ -15,9 +17,8 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-
     @offer.save
-    redirect_to offer_path(@offer)
+    redirect_to flights_path(offer: @offer)
   end
 
   # def update (WILL ONLY BE USED WHEN WE APPLY CATEGORIES)
@@ -28,6 +29,6 @@ class OffersController < ApplicationController
   # end
 
   def offer_params
-    params.require(:offer).permit(:localisation, :destination, :budget, :start_date, :end_date)
+    params.require(:offer).permit(:localisation, :destination, :min_budget, :max_budget, :start_date, :end_date)
   end
 end
