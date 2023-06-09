@@ -23,15 +23,16 @@ class HotelsController < ApplicationController
     @hotel = Hotel.new
   end
 
-  # def create
-  #   hotel_details = {
-  #     # add price and adress
-  #     name: hotel_params["hotel_title"].to_s,
-  #     offer: Offer.last
-  #   }
-  #   @hotel = Hotel.new(hotel_details)
-  #   @hotel.save
-  #   redirect_to offer_path(@hotel.offer)
+  def create
+    hotel_details = {
+      # add price and adress
+      name: hotel_params["hotel_title"].to_s,
+      offer: Offer.last
+    }
+    @hotel = Hotel.new(hotel_details)
+    @hotel.save
+    redirect_to offer_path(@hotel.offer)
+  end
 
   #   url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=#{latitude}&longitude=#{longitude}&checkIn=#{longitude}&checkOut=#{longitude}&pageNumber=1&currencyCode=EUR")
   #   http = Net::HTTP.new(url.host, url.port)

@@ -3,12 +3,50 @@ class FlightsController < ApplicationController
   require 'net/http'
   require 'json'
 
-
   def index
     @offer = Offer.last
-    @flight_data =  [{:departure=>"2023-06-09T16:00:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T18:20:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>59}, {:departure=>"2023-06-09T12:50:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T14:45:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T06:00:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T08:05:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T02:30:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T04:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.91}, {:departure=>"2023-06-09T08:45:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T10:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T22:50:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-10T01:00:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T05:00:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T07:15:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.91}, {:departure=>"2023-06-09T21:55:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-10T00:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T11:45:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T14:05:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}, {:departure=>"2023-06-09T15:45:00+05:30", :depart_location=>"BOM", :arrival=>"2023-06-09T18:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>61}]
-    # airport_code = source_airport_code
-    #create_flight
+    @flight_data = [
+      {
+        localisation: "BRUXELLES CHARLEROI AIRPORT",
+        destination: "IBIZA AIRPORT",
+        budget: 60.2,
+        start_date: "2023-06-07T20:10:00+05:30",
+        end_date: "2023-06-07T22:40:00+05:30",
+        price_per_passenger: 60.2
+      },
+      {
+        localisation: "BRUXELLES AIRPORT",
+        destination: "BARCELONE AIRPORT",
+        budget: 67.52,
+        start_date: "2023-06-07T15:45:00+05:30",
+        end_date: "2023-06-07T17:55:00+05:30",
+        price_per_passenger: 67.52
+      },
+      {
+        localisation: "BRUXELLES CHARLEROI AIRPORT",
+        destination: "ALICANTE AIRPORT",
+        budget: 69,
+        start_date: "2023-06-07T21:00:00+05:30",
+        end_date: "2023-06-07T23:10:00+05:30",
+        price_per_passenger: 69
+      },
+      {
+        localisation: "BRUXELLES AIRPORT",
+        destination: "MADRID AIRPORT",
+        budget: 113.44,
+        start_date: "2023-06-07T22:35:00+05:30",
+        end_date: "2023-06-07T23:45:00+05:30",
+        price_per_passenger: 113.44
+      },
+      {
+        localisation: "BRUXELLES CHARLEROI AIRPORT",
+        destination: "PALMA DE MALLORCA",
+        budget: 123.97,
+        start_date: "2023-06-07T22:05:00+05:30",
+        end_date: "2023-06-08T00:55:00+05:30",
+        price_per_passenger: 123.97
+      },
+    ]
   end
 
   def new
