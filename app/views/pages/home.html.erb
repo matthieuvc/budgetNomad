@@ -1,37 +1,38 @@
 <div class="content_page">
+
   <div class="d-flex justify-content-around">
     <h3>Welcome to budget Nomad</h3>
   </div>
-</div>
 
   <div style="width: 100%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  <%= form_tag flights_path, method: :get do %>
-   <%= text_field_tag :localisation, params[:localisation], placeholder: "From" %>
-  <%= text_field_tag :destination, params[:destination], placeholder: "To" %>
-  <%= date_field_tag :start_date, params[:start_date], placeholder: "Start Date", id: "start_date_input" %>
-  <%= date_field_tag :end_date, params[:end_date], placeholder: "End Date", id: "end_date_input", min: Date.current %>
-  <%= text_field_tag :min_budget, params[:min_budget], placeholder: "Min Budget" %>
-  <%= text_field_tag :max_budget, params[:max_budget], placeholder: "Max Budget" %>
-  <%= submit_tag "Search" %>
-<% end %>
+    <%= form_tag flights_path, method: :get do %>
+      <%= text_field_tag :localisation, params[:localisation], placeholder: "From" %>
+      <%= text_field_tag :destination, params[:destination], placeholder: "To" %>
+      <%= date_field_tag :start_date, params[:start_date], placeholder: "Start Date", id: "start_date_input" %>
+      <%= date_field_tag :end_date, params[:end_date], placeholder: "End Date", id: "end_date_input", min: Date.current %>
+      <%= text_field_tag :min_budget, params[:min_budget], placeholder: "Min Budget" %>
+      <%= text_field_tag :max_budget, params[:max_budget], placeholder: "Max Budget" %>
+      <%= submit_tag "Search" %>
+    <% end %>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var startDateInput = document.getElementById("start_date_input");
-    var endDateInput = document.getElementById("end_date_input");
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var startDateInput = document.getElementById("start_date_input");
+      var endDateInput = document.getElementById("end_date_input");
 
-    startDateInput.addEventListener("input", function() {
-      var startDate = new Date(startDateInput.value);
-      var minEndDate = new Date(startDate.getTime() + 24 * 60 * 60 * 1000); // Adding one day in milliseconds
+      startDateInput.addEventListener("input", function() {
+        var startDate = new Date(startDateInput.value);
+        var minEndDate = new Date(startDate.getTime() + 24 * 60 * 60 * 1000); // Adding one day in milliseconds
 
-      var year = minEndDate.getFullYear();
-      var month = String(minEndDate.getMonth() + 1).padStart(2, "0");
-      var day = String(minEndDate.getDate()).padStart(2, "0");
+        var year = minEndDate.getFullYear();
+        var month = String(minEndDate.getMonth() + 1).padStart(2, "0");
+        var day = String(minEndDate.getDate()).padStart(2, "0");
 
-      endDateInput.min = `${year}-${month}-${day}`;
+        endDateInput.min = `${year}-${month}-${day}`;
+      });
     });
-  });
-</script>
+  </script>
+</div>
