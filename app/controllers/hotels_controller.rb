@@ -6,16 +6,11 @@ class HotelsController < ApplicationController
   def index
     @offer = Offer.last
     @hotel_data = [
-      { name: "The Azure Oasis", address: "123 Main Street", rating: 4.5, price: 120 },
-      { name: "Moonlit Retreat", address: "456 Elm Street", rating: 3.8, price: 80 },
-      { name: "Stellar Heights", address: "789 Oak Street", rating: 4.2, price: 150 },
-      { name: "Aurora Haven", address: "321 Pine Street", rating: 3.5, price: 90 },
-      { name: "Twilight Manor", address: "654 Cedar Street", rating: 4.1, price: 130 },
-      { name: "Serenity Springs", address: "987 Birch Street", rating: 3.9, price: 110 },
-      { name: "The Radiant Crown", address: "234 Maple Street", rating: 4.6, price: 180 },
-      { name: "Enchanted Gardens", address: "567 Walnut Street", rating: 4.0, price: 100 },
-      { name: "Harmony Retreat", address: "890 Ash Street", rating: 3.7, price: 70 },
-      { name: "Mystic Sands Resort", address: "432 Pineapple Street", rating: 4.3, price: 140 }
+      { name: "The Azure Oasis", address: "123 Main Street", rating: 4.5, price: 120, picture: "ibzahotel1.png"},
+      { name: "Moonlit Retreat", address: "456 Elm Street", rating: 3.8, price: 80, picture:"ibizahotel2.png"},
+      { name: "Stellar Heights", address: "789 Oak Street", rating: 4.2, price: 150, picture:"ibizahotel3.png"},
+      { name: "Aurora Haven", address: "321 Pine Street", rating: 3.5, price: 90, picture:"ibizahotel4.png"},
+      { name: "Serenity Springs", address: "987 Birch Street", rating: 3.9, price: 110, picture:"ibizahotel5.png"},
     ]
   end
 
@@ -31,7 +26,7 @@ class HotelsController < ApplicationController
       rating: hotel_params["rating"],
       price: hotel_params["price"],
     }
-    raise
+
     @hotel = Hotel.new(hotel_details)
     @offer = Offer.find(params[:offer])
     @hotel.offer = Offer.find(params[:offer])
@@ -81,6 +76,6 @@ class HotelsController < ApplicationController
   private
 
   def hotel_params
-    params.require(:hotel).permit(:name, :rating, :price, :address)
+    params.require(:hotel).permit(:name, :rating, :price, :address, :picture)
   end
 end

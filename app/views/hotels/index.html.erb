@@ -4,14 +4,14 @@
 
     <% @hotel_data.each do |hotel|%>
 
-      <div class="d-flex">
+      <div>
           <div class="flights-card mt-3">
             <div class="d-flex justify-content-between">
 
               <div class="offers-card-content w-100">
                 <div class="d-flex w-100">
                   <div class="me-3">
-                    <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
+                    <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
                   </div>
 
                   <div class="w-100">
