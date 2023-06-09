@@ -75,6 +75,7 @@ class FlightsController < ApplicationController
 
     dp = params[:localisation]
     ar = params[:destination]
+  end
 
   def create_flight(source_code, destination_code, date)
     # this is just a comment
