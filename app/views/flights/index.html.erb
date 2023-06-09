@@ -39,7 +39,7 @@
                   <h6>Price</h6>
                 </div>
                 <div>
-                  <%= button_to "Select", {:controller => "flights", :action => "create", flight: flight}, class: "btn_select", method: :post %>
+                  <%= button_to "Select", {:controller => "flights", :action => "create", flight: flight, offer: params[:offer]}, class: "btn_select", method: :post %>
                 </div>
               </div>
 

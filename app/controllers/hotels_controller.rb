@@ -31,7 +31,7 @@ class HotelsController < ApplicationController
       rating: hotel_params["rating"],
       price: hotel_params["price"],
     }
-    raise
+    # raise
     @hotel = Hotel.new(hotel_details)
     @offer = Offer.find(params[:offer])
     @hotel.offer = Offer.find(params[:offer])
