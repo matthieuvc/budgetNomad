@@ -1,10 +1,13 @@
+<div class="flights-card mt-2" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 
+<div class="container">
 
-  <div class="flights-card" style="width: 100%; height: 600px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div>
     <%= simple_form_for @offer do |f| %>
       <%= f.input :localisation, placeholder: "From" %>
       <%= f.input :destination, placeholder: "To" %>
@@ -14,6 +17,7 @@
       <%= f.input :max_budget, placeholder: "Max Budget" %>
       <%= f.submit "Search" %>
     <% end %>
+  </div>
 
 
 
@@ -35,3 +39,5 @@
       });
     });
   </script>
+
+</div>

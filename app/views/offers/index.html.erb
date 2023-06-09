@@ -1,84 +1,73 @@
-<%# CITIES CARD TO APPLY LATER  %>
+<div class="container">
 
-  <%# <div class="d-flex">
-    <div class="offers-card">
-      <div class="offers-card-content">
-        <h6>S.Date - E.Date</h6>
-        <h5>City Name</h5>
-        <p>Starting at</p>
-        <p><strong>20.00€</strong></p>
-      </div>
-    </div>
-  </div> %>
+  <div class="content_page">
+    <h6>Let's personalize your package!</h6>
 
+  <%# SELECTING THE FLIGHT %>
 
+    <h3><i class="me-3 fa-solid fa-earth-americas"></i>1º STEP: Select one avaliable flight</h3>
+    <%  @flight_data =  [{:departure_time=>"2023-06-07T20:10:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T22:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.2}, {:departure_time=>"2023-06-07T15:45:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T17:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>67.52}, {:departure_time=>"2023-06-07T21:00:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>69}, {:departure_time=>"2023-06-07T22:35:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:45:00+05:30", :arrival_location=>"GOI", :price_per_passenger=>113.44}, {:departure_time=>"2023-06-07T22:05:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T00:55:00+05:30", :arrival_location=>"ATQ", :price_per_passenger=>123.97}, {:departure_time=>"2023-06-07T23:25:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T07:25:00+08:00", :arrival_location=>"KUL", :price_per_passenger=>657.45}] %>
 
-<div class="content_page">
-  <h6>Let's personalize your package!</h6>
-
-<%# SELECTING THE FLIGHT %>
-
-  <h3><i class="me-3 fa-solid fa-earth-americas"></i>1º STEP: Select one avaliable flight</h3>
-  <%  @flight_data =  [{:departure_time=>"2023-06-07T20:10:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T22:40:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>60.2}, {:departure_time=>"2023-06-07T15:45:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T17:55:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>67.52}, {:departure_time=>"2023-06-07T21:00:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:10:00+05:30", :arrival_location=>"DEL", :price_per_passenger=>69}, {:departure_time=>"2023-06-07T22:35:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-07T23:45:00+05:30", :arrival_location=>"GOI", :price_per_passenger=>113.44}, {:departure_time=>"2023-06-07T22:05:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T00:55:00+05:30", :arrival_location=>"ATQ", :price_per_passenger=>123.97}, {:departure_time=>"2023-06-07T23:25:00+05:30", :depart_location=>"BOM", :arrival_time=>"2023-06-08T07:25:00+08:00", :arrival_location=>"KUL", :price_per_passenger=>657.45}] %>
-
-  <% @flight_data.each_with_index do |flight, index|%>
-    <div class="d-flex">
-      <div class="flights-card">
-        <div class="d-flex justify-content-between">
-          <div class="offers-card-content">
-            <h6><strong>DEPARTURE</strong></h6>
-            <div class="d-flex">
-              <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
-              <div class="me-5">
-                <p> <%= flight[:departure_time]%> </p>
-                <%# .start_date.strftime("%b %e, %l:%M %p") TO ADD THE RIGHT FORMAT AT THE TIME %>
-                <p> <%=flight[:depart_location]%> </p>
+    <% @flight_data.each_with_index do |flight, index|%>
+      <div class="d-flex">
+        <div class="flights-card">
+          <div class="d-flex justify-content-between">
+            <div class="offers-card-content">
+              <h6><strong>DEPARTURE</strong></h6>
+              <div class="d-flex">
+                <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
+                <div class="me-5">
+                  <p> <%= flight[:departure_time]%> </p>
+                  <%# .start_date.strftime("%b %e, %l:%M %p") TO ADD THE RIGHT FORMAT AT THE TIME %>
+                  <p> <%=flight[:depart_location]%> </p>
+                </div>
+                <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+                <div>
+                  <p> <%=flight[:arrival_time]%> </p>
+                  <p> <%= flight[:arrival_location]%> </p>
+                </div>
               </div>
-              <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
-              <div>
-                <p> <%=flight[:arrival_time]%> </p>
-                <p> <%= flight[:arrival_location]%> </p>
+            </div>
+
+            <div class="thin-border-card"></div>
+
+            <div class="offers-card-content">
+              <h6><strong>RETURN</strong></h6>
+              <div class="d-flex">
+                <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
+                <div class="me-5">
+                  <p><%= flight[:departure_time]%></p>
+                  <p><%= flight[:depart_location]%></p>
+                </div>
+                <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+                <div>
+                  <p><%= flight[:arrival_time]%></p>
+                  <p><%= flight[:arrival_location]%></p>
+                </div>
+              <div class="offers-card-content-price text-end">
+                <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
+                <%# .ceil(2) TO SHOW THE LAST 2 NUMBERS IN THE FLOAT VALUE %>
+                <h6>Price</h6>
               </div>
             </div>
           </div>
 
-          <div class="thin-border-card"></div>
+          <div class="offers-card-content-price d-flex align-content-between flex-wrap justify-content-end">
+            <div>
+            <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
+            <%# .ceil(2) TO SHOW THE LAST 2 NUMBERS IN THE FLOAT VALUE %>
+            <h6 class="text-end">Price</h6>
+            </div>
 
-          <div class="offers-card-content">
-            <h6><strong>RETURN</strong></h6>
-            <div class="d-flex">
-              <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
-              <div class="me-5">
-                <p><%= flight[:departure_time]%></p>
-                <p><%= flight[:depart_location]%></p>
-              </div>
-              <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
-              <div>
-                <p><%= flight[:arrival_time]%></p>
-                <p><%= flight[:arrival_location]%></p>
-              </div>
-            <div class="offers-card-content-price text-end">
-              <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
-              <%# .ceil(2) TO SHOW THE LAST 2 NUMBERS IN THE FLOAT VALUE %>
-              <h6>Price</h6>
+            <div>
+              <button class="btn_select">Select<div class="hoverEffect"><div></div></div></button>
             </div>
           </div>
         </div>
-
-        <div class="offers-card-content-price d-flex align-content-between flex-wrap justify-content-end">
-          <div>
-          <h4><strong><%= flight[:price_per_passenger]%>€</strong></h4>
-          <%# .ceil(2) TO SHOW THE LAST 2 NUMBERS IN THE FLOAT VALUE %>
-          <h6 class="text-end">Price</h6>
-          </div>
-
-          <div>
-            <button class="btn_select">Select<div class="hoverEffect"><div></div></div></button>
-          </div>
-        </div>
       </div>
-    </div>
 
-  <% end %>
+    <% end %>
+
+  </div>
 
 </div>
