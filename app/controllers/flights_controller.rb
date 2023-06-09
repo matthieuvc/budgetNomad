@@ -48,7 +48,6 @@ class FlightsController < ApplicationController
         price_per_passenger: 123.97
       },
     ]
-
   end
 
   def new
@@ -115,9 +114,11 @@ class FlightsController < ApplicationController
 
     dp = params[:localisation]
     ar = params[:destination]
+  end
 
-
-    url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchFlights?sourceAirportCode=#{dp}&destinationAirportCode=#{ar}&date=#{params[:start_date]}&itineraryType=ONE_WAY&sortOrder=PRICE&numAdults=1&numSeniors=0&classOfService=ECONOMY&pageNumber=1&currencyCode=USD")
+  def create_flight(source_code, destination_code, date)
+    # this is just a comment
+    url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchFlights?sourceAirportCode=#{source_code}&destinationAirportCode=#{destination_code}&date=#{date}&itineraryType=ONE_WAY&sortOrder=PRICE&numAdults=1&numSeniors=0&classOfService=ECONOMY&pageNumber=1&currencyCode=USD")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -138,5 +139,6 @@ class FlightsController < ApplicationController
         price_per_passenger: flight["purchaseLinks"][0]["totalPricePerPassenger"]
       }
     end
+
   end
 end
