@@ -3,9 +3,11 @@ class OffersController < ApplicationController
     @offer = Offer.new
     @offers = Offer.all
   end
-  
+
   def show
     @offer = Offer.find(params[:id])
+    @flight = @offer.flight
+    @hotel = @offer.hotel
   end
 
   def new

@@ -5,7 +5,18 @@ class HotelsController < ApplicationController
 
   def index
     @offer = Offer.last
-    @hotel_data = create_hotel
+    @hotel_data = [
+      { name: "The Azure Oasis", address: "123 Main Street", rating: 4.5, price: 120 },
+      { name: "Moonlit Retreat", address: "456 Elm Street", rating: 3.8, price: 80 },
+      { name: "Stellar Heights", address: "789 Oak Street", rating: 4.2, price: 150 },
+      { name: "Aurora Haven", address: "321 Pine Street", rating: 3.5, price: 90 },
+      { name: "Twilight Manor", address: "654 Cedar Street", rating: 4.1, price: 130 },
+      { name: "Serenity Springs", address: "987 Birch Street", rating: 3.9, price: 110 },
+      { name: "The Radiant Crown", address: "234 Maple Street", rating: 4.6, price: 180 },
+      { name: "Enchanted Gardens", address: "567 Walnut Street", rating: 4.0, price: 100 },
+      { name: "Harmony Retreat", address: "890 Ash Street", rating: 3.7, price: 70 },
+      { name: "Mystic Sands Resort", address: "432 Pineapple Street", rating: 4.3, price: 140 }
+    ]
   end
 
   def new
@@ -26,7 +37,7 @@ class HotelsController < ApplicationController
 
   def create_hotel
     results = Geocoder.search(destination)
-    
+
     if results.present?
       latitude = results.first.latitude
       longitude = results.first.longitude
@@ -55,9 +66,9 @@ class HotelsController < ApplicationController
       }
     end
   end
-  
+
   private
-  
+
   def hotel_params
     params.require(:hotel).permit(:name, :rating, :price, :address)
   end
