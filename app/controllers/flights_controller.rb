@@ -34,6 +34,7 @@ class FlightsController < ApplicationController
   end
 
   def source_airport_code
+
     localisation = params[:localisation]
     url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchAirport?query=#{localisation}")
 
@@ -51,7 +52,7 @@ class FlightsController < ApplicationController
   end
 
   def destination_airport_code
-    url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchAirport?query=#{destination}")
+    url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/flights/searchAirport?query=#{params[:destination]}")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
@@ -62,11 +63,18 @@ class FlightsController < ApplicationController
 
     airport_response2 = http.request(request).read_body
     airport2 = JSON.parse(airport_response2)
-
-    airport2["data"][0]["airportCode"]
-
+    raise
+    return airport2["data"][0]["airportCode"]
   end
 
+
+  def create_flight
+
+    # dp = source_airport_code
+    # ar = destination_airport_code
+
+    dp = params[:localisation]
+    ar = params[:destination]
 
   def create_flight(source_code, destination_code, date)
     # this is just a comment
@@ -78,9 +86,9 @@ class FlightsController < ApplicationController
     request = Net::HTTP::Get.new(url)
     request["X-RapidAPI-Key"] = 'b4b3100277mshe0370ca0aea55ddp14b73bjsn4164eba75913'
     request["X-RapidAPI-Host"] = 'tripadvisor16.p.rapidapi.com'
-
     flight_response = http.request(request).read_body
     flights = JSON.parse(flight_response)
+
 
     flights["data"]["flights"].first(10).map do |flight|
       {
