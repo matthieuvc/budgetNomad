@@ -10,7 +10,7 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
-  <div class="d-flex">
+  <div>
     <%= simple_form_for @offer do |f| %>
       <%= f.input :localisation, placeholder: "From" %>
       <%= f.input :destination, placeholder: "To" %>

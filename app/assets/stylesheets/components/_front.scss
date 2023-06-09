@@ -93,7 +93,7 @@
 
 .btn_select:hover {
   background: rgb(193, 228, 248);
-  color: rgb(33, 0, 85);
+  color: rgb(58, 152, 185);
 }
 
 // USER STUFF
@@ -122,4 +122,18 @@
   height: 150px;
   min-width: 200px;
   border-radius: 5px;
+}
+
+// EXTRA ELEMENTS
+
+.thin-line-between {
+  height: 1px;
+  width: auto;
+  border: 1px solid rgb(231, 231, 231);
+}
+
+.thin-line-between-blue {
+  height: 2px;
+  width: auto;
+  border: 1px solid rgb(58, 152, 185);
 }
