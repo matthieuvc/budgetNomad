@@ -56,7 +56,7 @@ class FlightsController < ApplicationController
       arrival_location: flight_params["destination"],
       price: flight_params["price_per_passenger"].to_f
     }
-  
+
     @flight = Flight.new(flight_details)
     @offer = Offer.find(params[:offer])
     @flight.offer = Offer.find(params[:offer])
