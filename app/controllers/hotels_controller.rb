@@ -29,6 +29,7 @@ class HotelsController < ApplicationController
       name: hotel_params["hotel_title"].to_s,
       offer: Offer.last
     }
+    raise
     @hotel = Hotel.new(hotel_details)
     @hotel.save
     redirect_to offer_path(@hotel.offer)
