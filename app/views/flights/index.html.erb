@@ -4,32 +4,6 @@
 
   <h3>1º STEP: Chose your flight ✈️ </h3>
 
-  <% Offer.last.flights.each_with_index do | flight, index |%>
-  <p> <%= flight.departure%> </p>
-  <p> <%= flight.arrival%> </p>
-  <p> <%= flight.arrival_location%> </p>
-  <p> <%= flight.depart_location%> </p>
-  <%# THIS IS SHOWING ME ALL THE FLIGHTS INSIDE ONE OFFER, SO I SHOULD PUT THIS INSIDE OF THE MODAL ??? %>
-  <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <% @flight_data.each do |flight|%>
 
         <div class="d-flex">
