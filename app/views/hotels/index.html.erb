@@ -31,21 +31,38 @@
                 </div>
 
                 <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
-                  <div>
-                    <h4><strong><%= hotel[:price]%>€</strong></h4>
-                    <h6>Price</h6>
-                  </div>
+  <div>
+    <h4><strong><%= hotel[:price] %>€</strong></h4>
+    <h6>Price per Night</h6>
+  </div>
 
-                  <div>
-                    <%= button_to "Select", {:controller => "hotels", :action => "create", hotel: hotel, offer: params[:offer]},class: "btn_select", method: :post %>
-                  </div>
-                </div>
+  <div>
+   <%= form_tag({:controller => "hotels", :action => "create"}, method: :post) do %>
+  <%= hidden_field_tag "hotel[name]", hotel[:name] %>
+  <%= hidden_field_tag "hotel[address]", hotel[:address] %>
+  <%= hidden_field_tag "hotel[rating]", hotel[:rating] %>
+  <%= hidden_field_tag "hotel[price]", hotel[:price] %>
+  <%= hidden_field_tag "hotel[picture]", hotel[:picture] %>
+  <%= label_tag :num_nights, "Number of Nights" %>
+  <%= number_field_tag "num_nights", 1, min: 1 %>
+  <%= hidden_field_tag "hotel[num_nights]", hotel[:num_nights] %>
+  <%= submit_tag "Select", class: "btn_select" %>
+  <% end %>
+
+  </div>
+</div>
 
               </div>
             </div>
           <% end %>
           </div>
         </div>
+  </div>
+
+  <div class="basket">
+    <h3>Budget</h3>
+    <p>Prix de l'avion sélectionné : <%= @offer.flight.price %> euros</p>
+    <p>Total: <%= @offer.flight.price  %> euros</p>
   </div>
 
 </div>
