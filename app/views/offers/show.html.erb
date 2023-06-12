@@ -16,7 +16,7 @@
           <h6>Flight ✈️ </h6>
           <div class="thin-line-between mb-4"></div>
 
-            <div class="offers-card-content">
+            <div>
               <h6><strong>DEPARTURE</strong></h6>
               <div class="d-flex">
                 <div class="d-flex">
@@ -51,7 +51,7 @@
 
             <div class="d-flex justify-content-between">
 
-              <div class="offers-card-content w-100">
+              <div class="w-100">
                 <div class="d-flex w-100">
                   <div class="me-3">
                     <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
@@ -83,9 +83,11 @@
 
         <div>
           <p>Flight: <%= @flight.price %></p>
-          <p>Hotel: <%= @hotel.price %></p>
-          <p>Total of your package: <strong><%= @flight.price + @hotel.price %>€</strong></p>
+          <% total_num_night = @hotel.num_nights %>
+          <p>Hotel: <%= @hotel.price%>€ X <%=@hotel.num_nights %> Nights = <%=@hotel.price*@hotel.num_nights%>€ </p>
+          <p>Total of your package: <strong><%= number_with_precision(@flight.price + @hotel.price, precision: 2) %>€</strong></p>
         </div>
+
       </div>
 
     </div>

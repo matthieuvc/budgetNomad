@@ -2,64 +2,65 @@
 
   <div class="content_page">
 
-    <h3>Our avaliables hotel</h3>
+    <h3>2º STEP: Chose your hotel 🏨</h3>
 
       <% @hotel_data.each do |hotel|%>
 
         <div>
-            <div class="flights-card mt-3">
-              <div class="d-flex justify-content-between">
+          <div class="flights-card mt-3">
+            <div class="d-flex justify-content-between">
 
-                <div class="offers-card-content w-100">
-                  <div class="d-flex w-100">
-                    <div class="me-3">
-                      <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
-                    </div>
-
-                    <div class="w-100">
-                      <div class="w-100 pe-3 d-flex justify-content-between">
-                        <div><h4><strong> <%= hotel[:name]%> </strong></h4></div>
-                        <div><p><%= hotel[:rating]%><i class="fa-solid fa-star ms-2"></i></p></div>
-                      </div>
-
-                      <div>
-                      <p> <%= hotel[:address]%> </p>
-                      </div>
-                    </div>
-
+              <div class="w-100">
+                <div class="d-flex w-100">
+                  <div class="me-3">
+                    <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
                   </div>
+
+                  <div class="w-100">
+                    <div class="w-100 pe-3 d-flex justify-content-between">
+                      <div><h4><strong> <%= hotel[:name]%> </strong></h4></div>
+                      <div><p><%= hotel[:rating]%><i class="fa-solid fa-star ms-2"></i></p></div>
+                    </div>
+
+                    <div>
+                    <p> <%= hotel[:address]%> </p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
+                <div>
+                  <h4><strong><%= hotel[:price] %>€</strong></h4>
+                  <h6>Price per Night</h6>
                 </div>
 
-                <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
-  <div>
-    <h4><strong><%= hotel[:price] %>€</strong></h4>
-    <h6>Price per Night</h6>
-  </div>
-
-  <div>
-   <%= form_tag({:controller => "hotels", :action => "create"}, method: :post) do %>
-  <%= hidden_field_tag "hotel[name]", hotel[:name] %>
-  <%= hidden_field_tag "hotel[address]", hotel[:address] %>
-  <%= hidden_field_tag "hotel[rating]", hotel[:rating] %>
-  <%= hidden_field_tag "hotel[price]", hotel[:price] %>
-  <%= hidden_field_tag "hotel[picture]", hotel[:picture] %>
-  <%= label_tag :num_nights, "Number of Nights" %>
-  <%= number_field_tag "num_nights", 1, min: 1 %>
-  <%= hidden_field_tag "hotel[num_nights]", hotel[:num_nights] %>
-  <%= submit_tag "Select", class: "btn_select" %>
-  <% end %>
-
-  </div>
-</div>
+                <div>
+                <%= form_tag({:controller => "hotels", :action => "create"}, method: :post) do %>
+                <%= hidden_field_tag "hotel[name]", hotel[:name] %>
+                <%= hidden_field_tag "hotel[address]", hotel[:address] %>
+                <%= hidden_field_tag "hotel[rating]", hotel[:rating] %>
+                <%= hidden_field_tag "hotel[price]", hotel[:price] %>
+                <%= hidden_field_tag "hotel[picture]", hotel[:picture] %>
+                <%= label_tag :num_nights, "Number of Nights" %>
+                <%= number_field_tag "num_nights", 1, min: 1 %>
+                <%= hidden_field_tag "hotel[num_nights]", hotel[:num_nights] %>
+                <%= submit_tag "Select", class: "btn_select" %>
+                <% end %>
+                </div>
 
               </div>
+
             </div>
-          <% end %>
+
           </div>
+        <% end %>
         </div>
+      </div>
   </div>
 
-  <div class="basket">
+  <div class="basket flights-card mt-3">
     <h3>Budget</h3>
     <p>Prix de l'avion sélectionné : <%= @offer.flight.price %> euros</p>
     <p>Total: <%= @offer.flight.price  %> euros</p>
