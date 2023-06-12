@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :offers, only: [:show,:create]
   resources :flights, only: [:index, :create]
   resources :hotels, only: [:index, :create]
+  resources :packaging_activities, only: [:index, :create]
   get "dashboard", to: "pages#dashboard"
 end

@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="content_page">
+
+    <h3>Our Packaging activities Available </h3>
+
+      <% @activity_data.each do |activity|%>
+
+        <div>
+            <div class="flights-card mt-3">
+              <div class="d-flex justify-content-between">
+
+                <div class="offers-card-content w-100">
+                  <div class="d-flex w-100">
+                    <div class="me-3">
+                      <%# <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
+                    </div>
+
+                    <div class="w-100">
+                      <div class="w-100 pe-3 d-flex justify-content-between">
+                        <div><h4><strong> <%= activity[:type]%> </strong></h4></div>
+                        <div><p><%= activity[:rating]%><i class="fa-solid fa-star ms-2"></i></p></div>
+                      </div>
+
+                      <div>
+                      <p> <%= activity[:activity1]%> </p>
+                      </div>
+                      <div>
+                      <p> <%= activity[:activity2]%> </p>
+                      </div>
+                      <div>
+                      <p> <%= activity[:activity3]%> </p>
+                      </div>
+                      <div>
+                      <p> <%= activity[:activity4]%> </p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
+                  <div>
+                    <h4><strong><%= activity[:price]%>€</strong></h4>
+                    <h6>Price</h6>
+                  </div>
+
+                  <div>
+                    <%= button_to "Select", {:controller => "packaging_activities", :action => "create", activity: activity, offer: params[:offer]},class: "btn_select", method: :post %>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          <% end %>
+          </div>
+        </div>
+  </div>
+  <div class="basket">
+      <h1>BUDGET</h1>
+    <p>Flight: <%= @offer.flight.price %> euros</p>
+    <p>Hotel: <%= @offer.hotel.price %> euros</p>
+    <% @total = @offer.flight.price + @offer.hotel.price %>
+    <p>Total: <%= @total %> euros</p>
+  </div>
+
+</div>
