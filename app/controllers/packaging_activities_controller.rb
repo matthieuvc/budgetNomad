@@ -4,13 +4,12 @@ class PackagingActivitiesController < ApplicationController
   require 'json'
 
   def index
-    @offer = Offer.last
-    @hotel = @offer.hotel
+    @offer = Offer.find(params[:offer_id])
     @hotel = Hotel.find(params[:hotel_id])
     @num_nights = @hotel.num_nights
     @activity_data = [
       {
-        type: "Ultimate Ibiza Nightlife Experience",
+        category: "Ultimate Ibiza Nightlife Experience",
         activity1: "Saga Ibiza Boat - Ultimate Party Cruise Adventure",
         activity2: "Pacha Ibiza - Iconic Nightlife Extravaganza",
         activity3: "Amnesia Ibiza - Unleash Your Party Spirit",
@@ -22,7 +21,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "saga_ibiza_boat.jpg"
       },
       {
-        type: "Ultimate Ibiza Nightlife Experience",
+        category: "Ultimate Ibiza Nightlife Experience",
         activity1: "Sun, sand, and lively parties at Ocean Beach.",
         activity2: "Non-stop dancing to infectious beats at Hï Ibiza.",
         activity3: "Awe-inspiring dancefloor at the iconic Privilege Ibiza",
@@ -34,7 +33,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "ocean_beach_club.jpg"
       },
       {
-        type: "Ultimate Nightlife Experience",
+        category: "Ultimate Nightlife Experience",
         activity1: "Breathtaking sunsets and vibrant nightlife on Sunset Strip.",
         activity2: "Unforgettable moments at Café Mambo, sipping cocktails and enjoying music.",
         activity3: "Immersive and enchanting experiences await at Es Paradis",
@@ -46,7 +45,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "sunset_strip.jpg"
       },
       {
-        type: "Thrilling Adventures Await",
+        category: "Thrilling Adventures Await",
         activity1: "Kayaking in Ibiza's Coves",
         activity2: "Rock Climbing in Sa Talaia",
         activity3: "Mountain Biking in Ibiza's Trails",
@@ -58,7 +57,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "kayaking_ibiza.jpg"
       },
       {
-        type: "Thrilling Adventures Await",
+        category: "Thrilling Adventures Await",
         activity1: "Scuba Diving in Ibiza's Marine Reserve",
         activity2: "Paragliding over Ibiza's Coast",
         activity3: "Jet Skiing in the Mediterranean",
@@ -70,7 +69,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "scuba_diving_ibiza.jpg"
       },
       {
-        type: "Thrilling Adventures Await",
+        category: "Thrilling Adventures Await",
         activity1: "Yoga and Meditation Retreat in Ibiza",
         activity2: "Wellness and Spa Retreat in Ibiza",
         activity3: "Mindfulness Retreat in Ibiza's Nature",
@@ -82,7 +81,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "yoga_retreat_ibiza.jpg"
       },
       {
-        type: "Tranquil Retreat for Relaxation and Rejuvenation",
+        category: "Tranquil Retreat for Relaxation and Rejuvenation",
         activity1: "Holistic Healing Retreat in Ibiza",
         activity2: "Art and Creativity Retreat in Ibiza",
         activity3: "Transformational Retreat in Ibiza's Sacred Sites",
@@ -94,7 +93,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "holistic_healing_retreat_ibiza.jpg"
       },
       {
-        type: "Indulge in a Culinary Extravaganza",
+        category: "Indulge in a Culinary Extravaganza",
         activity1: "Ibiza Gourmet Food Tour",
         activity2: "Cooking Classes with Local Chefs",
         activity3: "Wine Tasting and Vineyard Tour",
@@ -106,7 +105,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "culinary_experience_ibiza.jpg"
       },
       {
-        type: "Indulge in a Culinary Extravaganza",
+        category: "Indulge in a Culinary Extravaganza",
         activity1: "Ibiza Food and Wine Tasting Tour",
         activity2: "Cooking Classes with Local Chefs",
         activity3: "Farm-to-Table Dining Experience",
@@ -118,7 +117,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "culinary_experience_ibiza.jpg"
       },
       {
-        type: "Indulge in a Culinary Extravaganza",
+        category: "Indulge in a Culinary Extravaganza",
         activity1: "Seafood Cooking Workshop",
         activity2: "Ibiza Paella Masterclass",
         activity3: "Tapas Tasting and Wine Pairing",
@@ -130,7 +129,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "culinary_workshop_ibiza.jpg"
       },
       {
-        type: "Tranquil Retreat for Relaxation and Rejuvenation",
+        category: "Tranquil Retreat for Relaxation and Rejuvenation",
         activity1: "Yoga and Meditation Retreat in Nature",
         activity2: "Spa and Wellness Retreat",
         activity3: "Holistic Healing Workshops",
@@ -142,7 +141,7 @@ class PackagingActivitiesController < ApplicationController
         picture: "wellness_retreat_ibiza.jpg"
       },
       {
-        type: "Unleash Your Creativity and Art Inspiration",
+        category: "Unleash Your Creativity and Art Inspiration",
         activity1: "Street Art Tour and Graffiti Workshop",
         activity2: "Painting and Wine Tasting Experience",
         activity3: "Artistic Photography Tour",
@@ -158,12 +157,12 @@ class PackagingActivitiesController < ApplicationController
   end
 
   def new
-    @packaging_activities = PackagingActivities.new
+    @packaging_activities = PackagingActivity.new
   end
 
   def create
     package_details = {
-      type: packaging_activities_params["type"],
+      category: packaging_activities_params["category"],
       activity1: packaging_activities_params["activity1"],
       activity2: packaging_activities_params["activity2"],
       activity3: packaging_activities_params["activity3"],
@@ -172,20 +171,21 @@ class PackagingActivitiesController < ApplicationController
       city: packaging_activities_params["city"],
       rating: packaging_activities_params["rating"],
       description: packaging_activities_params["description"],
-      picture: packaging_activities_params["picture"]
+      # picture: packaging_activities_params["picture"]
     }
-    @packaging_activities = PackagingActivities.new(package_details)
-    @offer = Offer.find(params[:offer])
-    @packaging_activities.offer = Offer.find(params[:offer])
+    @packaging_activities = PackagingActivity.new(package_details)
+    @offer = Offer.find(params[:offer_id])
+    @packaging_activities.offer = @offer
     @packaging_activities.save
     redirect_to offer_path(@packaging_activities.offer)
+
   end
 
   private
 
   def packaging_activities_params
     params.require(:packaging_activities).permit(
-      :type,
+      :category,
       :rating,
       :description,
       :city,
@@ -197,6 +197,5 @@ class PackagingActivitiesController < ApplicationController
       :activity4,
       :offer_id
     )
-
   end
 end
