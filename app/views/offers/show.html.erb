@@ -83,8 +83,9 @@
 
         <div>
           <p>Flight: <%= @flight.price %></p>
-          <p>Hotel: <%= @hotel.price %></p>
-          <p>Total of your package: <strong><%= @flight.price + @hotel.price %>€</strong></p>
+          <% total_num_night = @hotel.num_nights %>
+          <p>Hotel: <%= @hotel.price%>€ X <%=@hotel.num_nights %> Nights = <%=@hotel.price*@hotel.num_nights%>€ </p>
+          <p>Total of your package: <strong><%= number_with_precision(@flight.price + @hotel.price, precision: 2) %>€</strong></p>
         </div>
       </div>
 
