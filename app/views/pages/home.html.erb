@@ -13,8 +13,7 @@
       <%= f.input :destination, placeholder: "To" %>
       <%= f.input :start_date, as: :date, html5: true,  placeholder: "Start Date", id: "start_date_input" %>
       <%= f.input :end_date, as: :date, html5: true, placeholder: "End Date", id: "end_date_input", min: Date.current %>
-      <%= f.input :min_budget, placeholder: "Min Budget" %>
-      <%= f.input :max_budget, placeholder: "Max Budget" %>
+      <%= f.input :budget, placeholder: "Budget" %>
       <%= f.submit "Search" %>
     <% end %>
   </div>

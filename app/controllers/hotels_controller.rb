@@ -6,11 +6,11 @@ class HotelsController < ApplicationController
   def index
     @offer = Offer.last
     @hotel_data = [
-      { name: "The Azure Oasis", address: "123 Main Street", rating: 4.5, price: 120, picture: "ibzahotel1.png"},
       { name: "Moonlit Retreat", address: "456 Elm Street", rating: 3.8, price: 80, picture:"ibizahotel2.png"},
-      { name: "Stellar Heights", address: "789 Oak Street", rating: 4.2, price: 150, picture:"ibizahotel3.png"},
       { name: "Aurora Haven", address: "321 Pine Street", rating: 3.5, price: 90, picture:"ibizahotel4.png"},
       { name: "Serenity Springs", address: "987 Birch Street", rating: 3.9, price: 110, picture:"ibizahotel5.png"},
+      { name: "The Azure Oasis", address: "123 Main Street", rating: 4.5, price: 120, picture: "ibzahotel1.png"},
+      { name: "Stellar Heights", address: "789 Oak Street", rating: 4.2, price: 150, picture:"ibizahotel3.png"},
     ]
   end
 
@@ -19,19 +19,19 @@ class HotelsController < ApplicationController
   end
 
   def create
+
     hotel_details = {
-      # add price and adress
       name: hotel_params["name"],
       address: hotel_params["address"],
       rating: hotel_params["rating"],
       price: hotel_params["price"],
     }
-    # raise
+
     @hotel = Hotel.new(hotel_details)
-    @offer = Offer.find(params[:offer])
-    @hotel.offer = Offer.find(params[:offer])
+    @offer = Offer.last
+    @hotel.offer = @offer
     @hotel.save
-    redirect_to offer_path(@hotel.offer)
+    redirect_to packaging_activities_path(offer_id: @offer.id, hotel_id: @hotel.id)
   end
 
   #   url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=#{latitude}&longitude=#{longitude}&checkIn=#{longitude}&checkOut=#{longitude}&pageNumber=1&currencyCode=EUR")
