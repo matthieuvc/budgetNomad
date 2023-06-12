@@ -60,7 +60,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_details)
     @offer = Offer.find(params[:offer])
     @flight.offer = @offer
-    @flight.save
+    @flight.save!
 
     redirect_to hotels_path(offer_id: @offer.id, flight_id: @flight.id)
   end

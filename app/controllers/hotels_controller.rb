@@ -31,7 +31,7 @@ class HotelsController < ApplicationController
     @hotel = Hotel.new(hotel_details)
     @offer = Offer.last
     @hotel.offer = @offer
-    @hotel.save
+    @hotel.save!
     @hotel.update(num_nights: params[:num_nights])
     redirect_to packaging_activities_path(offer_id: @offer.id, hotel_id: @hotel.id)
 
