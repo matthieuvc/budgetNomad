@@ -19,19 +19,22 @@ class HotelsController < ApplicationController
   end
 
   def create
+    puts "Num Nights: #{params[:num_nights]}"
 
     hotel_details = {
       name: hotel_params["name"],
       address: hotel_params["address"],
       rating: hotel_params["rating"],
       price: hotel_params["price"],
+      num_nights: hotel_params["num_nights"]
     }
-
     @hotel = Hotel.new(hotel_details)
     @offer = Offer.last
     @hotel.offer = @offer
     @hotel.save
+    @hotel.update(num_nights: params[:num_nights])
     redirect_to packaging_activities_path(offer_id: @offer.id, hotel_id: @hotel.id)
+
   end
 
   #   url = URI("https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=#{latitude}&longitude=#{longitude}&checkIn=#{longitude}&checkOut=#{longitude}&pageNumber=1&currencyCode=EUR")
@@ -76,6 +79,6 @@ class HotelsController < ApplicationController
   private
 
   def hotel_params
-    params.require(:hotel).permit(:name, :rating, :price, :address, :picture)
+    params.require(:hotel).permit(:name, :rating, :price, :address, :picture, :num_nights)
   end
 end
