@@ -57,11 +57,15 @@
         </div>
   </div>
   <div class="basket">
-      <h1>BUDGET</h1>
-    <p>Flight: <%= @offer.flight.price %> euros</p>
-    <p>Hotel: <%= @offer.hotel.price %> euros</p>
-    <% @total = @offer.flight.price + @offer.hotel.price %>
-    <p>Total: <%= @total %> euros</p>
-  </div>
+  <h1>BUDGET</h1>
+<p>Flight: <%= @offer.flight.price %> euros</p>
+<p>Hotel per night: <%= @offer.hotel.price %> euros</p>
+<p>Number of Nights: <%= @num_nights %></p>
+<% hotel_total = @offer.hotel.price * @num_nights %>
+<p>Hotel Total: <%= hotel_total %> euros</p>
+<% total = @offer.flight.price + hotel_total %>
+<p>Total: <%= total %> euros</p>
+
+
 
 </div>

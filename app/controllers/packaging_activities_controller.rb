@@ -5,6 +5,9 @@ class PackagingActivitiesController < ApplicationController
 
   def index
     @offer = Offer.last
+    @hotel = @offer.hotel
+    @hotel = Hotel.find(params[:hotel_id])
+    @num_nights = @hotel.num_nights
     @activity_data = [
       {
         type: "Ultimate Ibiza Nightlife Experience",
