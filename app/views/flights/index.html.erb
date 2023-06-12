@@ -2,7 +2,33 @@
 
   <div class="content_page">
 
-  <h3>Our avaliables flights</h3>
+  <h3>1º STEP: Chose your flight ✈️ </h3>
+
+  <% Offer.last.flights.each_with_index do | flight, index |%>
+  <p> <%= flight.departure%> </p>
+  <p> <%= flight.arrival%> </p>
+  <p> <%= flight.arrival_location%> </p>
+  <p> <%= flight.depart_location%> </p>
+  <%# THIS IS SHOWING ME ALL THE FLIGHTS INSIDE ONE OFFER, SO I SHOULD PUT THIS INSIDE OF THE MODAL ??? %>
+  <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <% @flight_data.each do |flight|%>
 
@@ -18,7 +44,7 @@
                     <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
 
                     <div class="me-5 d-flex flex-column justify-content-between">
-                      <p> <%= flight[:localisation]%> </p>
+                      <p> <%= flight[:localiation]%> </p>
                       <p> <%=flight[:start_date]%> </p>
                     </div>
                   </div>
