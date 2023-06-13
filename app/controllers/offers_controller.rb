@@ -8,6 +8,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @flight = @offer.flight
     @hotel = @offer.hotel
+    @packaging_activity = @offer.packaging_activity
   end
 
   def new
@@ -17,8 +18,11 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-    @offer.save
+   if @offer.save
     redirect_to flights_path(offer: @offer)
+   else
+    render :new, status: :unprocessable_entity
+   end
   end
 
   # def update (WILL ONLY BE USED WHEN WE APPLY CATEGORIES)
@@ -29,6 +33,6 @@ class OffersController < ApplicationController
   # end
 
   def offer_params
-    params.require(:offer).permit(:localisation, :destination, :min_budget, :max_budget, :start_date, :end_date)
+    params.require(:offer).permit(:localisation, :destination, :budget, :start_date, :end_date)
   end
 end
