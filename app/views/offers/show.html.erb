@@ -56,10 +56,12 @@
             <h6>Hotel 🏨</h6>
             <div class="thin-line-between mb-4"></div>
 
+
+
             <div class="offers-card-content">
               <div class="d-flex w-100">
                 <div class="me-3">
-                  <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
+                <%= image_tag @hotel.picture, class: "image-hotel", alt: "" %>              
                 </div>
                 <div class="w-100">
                   <div class="w-100 pe-3 d-flex justify-content-between">
@@ -69,6 +71,7 @@
                     <div>
                       <p><%= @hotel.rating %><i class="fa-solid fa-star ms-2"></i></p>
                     </div>
+
                   </div>
                   <div>
                     <p><%= @hotel.address %></p>
@@ -84,14 +87,20 @@
             <h6>Activities 🏄‍♂️</h6>
             <div class="thin-line-between mb-4"></div>
 
+
+
             <div class="offers-card-content">
               <div class="me-3">
+                <div class="me-3">
+              <%= image_tag @packaging_activity.picture, class: "image-hotel", alt: "" %>
+              </div>
                 <div class="w-100 pe-3 d-flex justify-content-between">
                   <div>
                     <h4><strong><%= @packaging_activity.category %></strong></h4>
                   </div>
                 </div>
                 <p><%= @packaging_activity.rating %><i class="fa-solid fa-star ms-2"></i></p>
+
                 <div>
                   <p><%= @packaging_activity.activity1 %></p>
                 </div>
