@@ -18,8 +18,11 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
-    @offer.save
+   if @offer.save
     redirect_to flights_path(offer: @offer)
+   else
+    render :new, status: :unprocessable_entity
+   end
   end
 
   # def update (WILL ONLY BE USED WHEN WE APPLY CATEGORIES)
