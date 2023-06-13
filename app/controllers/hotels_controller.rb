@@ -21,12 +21,14 @@ class HotelsController < ApplicationController
   def create
     puts "Num Nights: #{params[:num_nights]}"
 
+
     hotel_details = {
       name: hotel_params["name"],
       address: hotel_params["address"],
       rating: hotel_params["rating"],
       price: hotel_params["price"],
-      num_nights: hotel_params["num_nights"]
+      num_nights: hotel_params["num_nights"],
+      picture: hotel_params["picture"]
     }
     @hotel = Hotel.new(hotel_details)
     @offer = Offer.last

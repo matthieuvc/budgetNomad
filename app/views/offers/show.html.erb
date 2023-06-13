@@ -42,7 +42,7 @@
           <div class="offers-card-content">
             <div class="d-flex w-100">
               <div class="me-3">
-                <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
+              <%= image_tag @hotel.picture, class: "image-hotel", alt: "" %>
               </div>
               <div class="w-100">
                 <div class="w-100 pe-3 d-flex justify-content-between">
@@ -69,6 +69,8 @@
 
           <div class="offers-card-content">
             <div class="me-3">
+              <%= image_tag @packaging_activity.picture, class: "image-hotel", alt: "" %>
+              </div>
               <div class="w-100 pe-3 d-flex justify-content-between">
                 <div>
                   <h4><strong><%= @packaging_activity.category %></strong></h4>
