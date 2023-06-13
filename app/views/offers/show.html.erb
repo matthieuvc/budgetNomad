@@ -102,10 +102,12 @@
 
         <div>
           <% total_num_night = @hotel.num_nights %>
-          <p>Flight: <%= @flight.price %></p>
-          <p>Hotel: <%= @hotel.price %>€ X <%= @hotel.num_nights %> = <%= @hotel.price * @hotel.num_nights %>€</p>
-          <p>Activities: <%= @packaging_activity.price %>€</p>
-          <p>Total of your package: <strong><%= number_with_precision(@flight.price + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
+        <p>✅Flight : <%= @offer.flight.price %>€</p>
+        <p>✅Hotel: <%= @hotel.price %>€ X <%= @hotel.num_nights %> = <%= @hotel.price * @hotel.num_nights %>€</p>
+        <p>✅Activities: <%= @packaging_activity.price %>€</p>
+        <p>--------------------------------------------------------------------------</p>
+        <p>💶Total of your package: <strong><%= number_with_precision(@flight.price + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
+
         </div>
       </div>
 <!-- END BUDGET CARD -->
