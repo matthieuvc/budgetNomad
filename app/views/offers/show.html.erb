@@ -10,105 +10,106 @@
 
     <div class="d-flex">
       <div class="d-flex flex-column">
-
         <!-- FLIGHT CARD -->
-        <div class="flights-card mt-3">
-          <h6>Flight ✈️</h6>
-          <div class="thin-line-between mb-4"></div>
+        <div>
+          <div class="flights-card mt-3">
+            <h6>Flight ✈️</h6>
+            <div class="thin-line-between mb-4"></div>
 
-          <div class="offers-card-content">
-            <h6><strong>DEPARTURE/Outbound</strong></h6>
-            <div class="d-flex">
-
+            <div class="offers-card-content">
+              <h6><strong>DEPARTURE/Outbound</strong></h6>
               <div class="d-flex">
-                <div class="d-flex">
-                  <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
 
-                  <div class="me-5 d-flex flex-column justify-content-between">
-                    <p>From: <%= @flight.depart_location %></p>
-                    <p>To: <%= @flight.arrival_location %></p>
-                    <p>Departure: <%= @flight.departure_outbound %></p>
-                    <p>Arrival: <%= @flight.departure_inbound %></p>
+                <div class="d-flex">
+                  <div class="d-flex">
+                    <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
+
+                    <div class="me-5 d-flex flex-column justify-content-between">
+                      <p>From: <%= @flight.depart_location %></p>
+                      <p>To: <%= @flight.arrival_location %></p>
+                      <p>Departure: <%= @flight.departure_outbound %></p>
+                      <p>Arrival: <%= @flight.departure_inbound %></p>
+                    </div>
+                  </div>
+                </div>
+
+                <h6><strong>Inbound</strong></h6>
+                  <div class="d-flex">
+                    <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+
+                    <div class="me-5 d-flex flex-column justify-content-between">
+                      <p>From: <%= @flight.arrival_location %></p>
+                      <p>To: <%= @flight.depart_location%></p>
+                      <p>Departure: <%= @flight.return_outbound %></p>
+                      <p>Arrival: <%= @flight.return_inbound %></p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <h6><strong>Inbound</strong></h6>
-                <div class="d-flex">
-                  <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+            </div>
+          </div>
+          <!-- END FLIGHT CARD -->
 
-                  <div class="me-5 d-flex flex-column justify-content-between">
-                    <p>From: <%= @flight.arrival_location %></p>
-                    <p>To: <%= @flight.depart_location%></p>
-                    <p>Departure: <%= @flight.return_outbound %></p>
-                    <p>Arrival: <%= @flight.return_inbound %></p>
+          <!-- HOTEL CARD -->
+          <div class="flights-card mt-2">
+            <h6>Hotel 🏨</h6>
+            <div class="thin-line-between mb-4"></div>
+
+            <div class="offers-card-content">
+              <div class="d-flex w-100">
+                <div class="me-3">
+                  <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
+                </div>
+                <div class="w-100">
+                  <div class="w-100 pe-3 d-flex justify-content-between">
+                    <div>
+                      <h4><strong><%= @hotel.name %></strong></h4>
+                    </div>
+                    <div>
+                      <p><%= @hotel.rating %><i class="fa-solid fa-star ms-2"></i></p>
+                    </div>
+                  </div>
+                  <div>
+                    <p><%= @hotel.address %></p>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-        </div>
-        <!-- END FLIGHT CARD -->
-
-        <!-- HOTEL CARD -->
-        <div class="flights-card mt-2">
-          <h6>Hotel 🏨</h6>
-          <div class="thin-line-between mb-4"></div>
-
-          <div class="offers-card-content">
-            <div class="d-flex w-100">
-              <div class="me-3">
-                <img src="https://www.redrockresort.com/wp-content/uploads/2020/12/RR-Standard-2-Queen.jpg" class="image-hotel" alt="">
-              </div>
-              <div class="w-100">
-                <div class="w-100 pe-3 d-flex justify-content-between">
-                  <div>
-                    <h4><strong><%= @hotel.name %></strong></h4>
-                  </div>
-                  <div>
-                    <p><%= @hotel.rating %><i class="fa-solid fa-star ms-2"></i></p>
-                  </div>
-                </div>
-                <div>
-                  <p><%= @hotel.address %></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <!-- END HOTEL CARD -->
 
         <!-- ACTIVITIES CARD -->
-        <div class="flights-card mt-2">
-          <h6>Activities 🏄‍♂️</h6>
-          <div class="thin-line-between mb-4"></div>
+          <div class="flights-card mt-2">
+            <h6>Activities 🏄‍♂️</h6>
+            <div class="thin-line-between mb-4"></div>
 
-          <div class="offers-card-content">
-            <div class="me-3">
-              <div class="w-100 pe-3 d-flex justify-content-between">
-                <div>
-                  <h4><strong><%= @packaging_activity.category %></strong></h4>
+            <div class="offers-card-content">
+              <div class="me-3">
+                <div class="w-100 pe-3 d-flex justify-content-between">
+                  <div>
+                    <h4><strong><%= @packaging_activity.category %></strong></h4>
+                  </div>
                 </div>
-              </div>
-              <p><%= @packaging_activity.rating %><i class="fa-solid fa-star ms-2"></i></p>
-              <div>
-                <p><%= @packaging_activity.activity1 %></p>
-              </div>
-              <div>
-                <p><%= @packaging_activity.activity2 %></p>
-              </div>
-              <div>
-                <p><%= @packaging_activity.activity3 %></p>
-              </div>
-              <div>
-                <p><%= @packaging_activity.activity4 %></p>
+                <p><%= @packaging_activity.rating %><i class="fa-solid fa-star ms-2"></i></p>
+                <div>
+                  <p><%= @packaging_activity.activity1 %></p>
+                </div>
+                <div>
+                  <p><%= @packaging_activity.activity2 %></p>
+                </div>
+                <div>
+                  <p><%= @packaging_activity.activity3 %></p>
+                </div>
+                <div>
+                  <p><%= @packaging_activity.activity4 %></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <!-- END ACTIVITIES CARD -->
-      </div>
+
 
 
       <%# RESUME WITH DETAILS AND PRICE %>
@@ -117,9 +118,9 @@
         <div class="thin-line-between-red mb-4"></div>
 
         <div class="offers-card-content">
-          <p>✈️ Flight: <strong><%= @offer.flight.price %>€</strong></p>
-          <p>🏨 Hotel x <%= @hotel.num_nights %> days: <strong><%= @hotel.price * @hotel.num_nights %>€</strong></p>
-          <p>🏄‍♂️ Activity: <strong> <%= @packaging_activity.price %> €</strong></p>
+          <p>✈️ Flight: <strong><%= sprintf("%.2f", @offer.flight.price) %>€</strong></p>
+          <p>🏨 Hotel x <%= @hotel.num_nights %> days: <strong><%= sprintf("%.2f", @hotel.price * @hotel.num_nights) %>€</strong></p>
+          <p>🏄‍♂️ Activity: <strong> <%= sprintf("%.2f", @packaging_activity.price) %> €</strong></p>
 
           <div class="thin-line-between mb-2"></div>
 
@@ -128,7 +129,6 @@
         </div>
       </div>
       <!-- END RESUME WITH DETAILS AND PRICE -->
-
     </div>
   </div>
 </div>
