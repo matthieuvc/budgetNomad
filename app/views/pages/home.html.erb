@@ -1,13 +1,6 @@
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
-
 <div class="container">
-
-  <div class="search-form mt-5">
+  <h3 class="mt-5 title-gradient text-center">Budget, Book... and enjoy your Travel!</h3>
+  <div class="search-form mt-2">
     <%= simple_form_for @offer do |f| %>
     <div class="d-flex align-items-center">
       <%= f.input :localisation, placeholder: "From?", wrapper_html: {class: "me-3"} %>
@@ -40,6 +33,11 @@
     });
   </script>
 
+  <h5 class="mt-5 text-center">Or...you can also check our</h5>
+  <h4 class="text-center">🔥 Hot Offers 🔥</h4>
+<div class="flights-card" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
 </div>
