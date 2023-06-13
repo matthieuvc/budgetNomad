@@ -17,25 +17,29 @@
           <div class="thin-line-between mb-4"></div>
 
             <div class="offers-card-content">
-              <h6><strong>DEPARTURE</strong></h6>
+              <h6><strong>Outbound</strong></h6>
               <div class="d-flex">
                 <div class="d-flex">
                   <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
 
                   <div class="me-5 d-flex flex-column justify-content-between">
                     <p>From: <%= @flight.depart_location %></p>
+                    <p>To: <%= @flight.arrival_location %></p>
                     <p>Departure: <%= @flight.departure %></p>
+                    <p>Arrival: <%= @flight.arrival %></p>
                   </div>
                 </div>
               </div>
 
-              <h6><strong>ARRIVAL</strong></h6>
+              <h6><strong>Inbound</strong></h6>
                 <div class="d-flex">
                   <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
 
                   <div class="me-5 d-flex flex-column justify-content-between">
-                    <p>To: <%= @flight.arrival_location%></p>
-                    <p>Arrival: <%= @flight.arrival %></p>
+                    <p>From: <%= @flight.arrival_location %></p>
+                    <p>To: <%= @flight.depart_location%></p>
+                    <p>Departure:</p>
+                    <p>Arrival:</p>
                   </div>
                 </div>
               </div>

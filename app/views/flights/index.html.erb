@@ -2,9 +2,9 @@
 
   <div class="content_page">
 
-  <h3>Our avaliables flights</h3>
+    <h3>Our avaliables flights</h3>
 
-    <% @departure_data.each do |departure|%>
+    <% @departure_data.each do |departure| %>
 
         <div class="d-flex">
           <div class="flights-card mt-3">
@@ -12,16 +12,14 @@
 
               <div class="offers-card-content">
                 <h6><strong>DEPARTURE</strong></h6>
-                  <p><%= departure[:go_departure_location]%> // <%= departure[:go_departure]%></p>
-                  <p><%= departure[:go_layover_location]%> </p>
-                  <p><%= departure[:go_arrival_location]%> // <%=departure[:go_arrival]%></p>
+                <p><%= departure[:go_departure_location]%> // <%= departure[:go_departure]%></p>
+                <p><%= departure[:go_layover_location]%> </p>
+                <p><%= departure[:go_arrival_location]%> // <%=departure[:go_arrival]%></p>
 
-                  <h6><strong>RETURN</strong></h6>
-                  <p><%= @return_data[@departure_data.index(departure)][:back_departure_location]%>// <%= @return_data[@departure_data.index(departure)][:back_departure]%></p>
-                  <p><%= @return_data[@departure_data.index(departure)][:back_layover_location]%></p>
-                  <p><%= @return_data[@departure_data.index(departure)][:back_arrival_location]%>// <%= @return_data[@departure_data.index(departure)][:back_arrival]%></p>
-
-
+                <h6><strong>RETURN</strong></h6>
+                <p><%= @return_data[@departure_data.index(departure)][:back_departure_location]%>// <%= @return_data[@departure_data.index(departure)][:back_departure]%></p>
+                <p><%= @return_data[@departure_data.index(departure)][:back_layover_location]%></p>
+                <p><%= @return_data[@departure_data.index(departure)][:back_arrival_location]%>// <%= @return_data[@departure_data.index(departure)][:back_arrival]%></p>
               </div>
 
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
@@ -30,7 +28,7 @@
                   <h6>Price</h6>
                 </div>
                 <div>
-                  <%# <%= button_to "Select", {:controller => "flights", :action => "create", flight: flight, offer: params[:offer]}, class: "btn_select", method: :post %>
+                  <%= button_to "Select", {:controller => "flights", :action => "create", flight: departure.merge(@return_data[@departure_data.index(departure)]), offer: params[:offer]}, class: "btn_select", method: :post %>
                 </div>
               </div>
 
@@ -38,8 +36,9 @@
           </div>
         </div>
 
-      <% end %>
-    </div>
+    <% end %>
+
+  </div>
 
   </div>
 
