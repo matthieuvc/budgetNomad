@@ -36,7 +36,7 @@
 
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
                 <div>
-                  <h4><strong><%= hotel[:price] %>€</strong></h4>
+                  <h4><strong><%= sprintf("%.2f", hotel[:price]) %>€</strong></h4>
                   <h6>Price per Night</h6>
                 </div>
 
