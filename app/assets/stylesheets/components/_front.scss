@@ -69,7 +69,7 @@
   margin-top: 50px;
 }
 
-// BTN SELECT
+// BTNS SELECT & CALL TO ACTION
 
 .btn_select{
   display: inline-flex;
@@ -83,13 +83,32 @@
   transition: all 0.02s;
   font-weight: bold;
   color: white;
-  background-color: #22A699;
+  background-color: #F2BE22;
   z-index: 0;
   box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
 
 .btn_select:hover {
-  background: #16887d;
+  background: #F29727;
+  color: white;
+}
+
+.btn_cta{
+  width: 120px;
+  height: 40px;
+  border: 0;
+  border-radius: 50px;
+  padding: 5px 15px;
+  color: white;
+  background-color: #F2BE22;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  overflow: hidden;
+  transition: all 0.02s;
+}
+
+.btn_cta:hover {
+  background: #F29727;
   color: white;
 }
 
@@ -130,10 +149,24 @@
   border-radius: 1px;
 }
 
-.thin-line-between-blue {
+.thin-line-between-red {
   height: 2px;
   width: auto;
   border: 2px solid #F24C3D;
+  border-radius: 2px;
+}
+
+.thin-line-between-yellow {
+  height: 1px;
+  width: auto;
+  border: 1px solid #F2BE22;
+  border-radius: 2px;
+}
+
+.thin-line-between-blue-card {
+  height: 1px;
+  width: 100px;
+  border: 1px solid #22A699;
   border-radius: 2px;
 }
 
@@ -145,25 +178,6 @@
 
 .form-style {
   border-radius: 5px;
-}
-
-.btn_cta{
-  width: 120px;
-  height: 40px;
-  border: 0;
-  border-radius: 50px;
-  padding: 5px 15px;
-  color: white;
-  background-color: #F2BE22;
-  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-  overflow: hidden;
-  transition: all 0.02s;
-}
-
-.btn_cta:hover {
-  background: #F29727;
-  color: white;
 }
 
 .search-form {
