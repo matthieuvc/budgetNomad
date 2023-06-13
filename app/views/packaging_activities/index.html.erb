@@ -62,14 +62,14 @@
   <div class="thin-line-between mb-4"></div>
 
   <div class="offers-card-content">
-   <p>Flight : <%= @offer.flight.price %>€</p>
-   <p>Hotel per night: <%= @offer.hotel.price %>€</p>
-   <p>Number of Nights: <%= @num_nights %></p>
+   <p>✅ Flight : <%= @offer.flight.price %>€</p>
    <% hotel_total = @offer.hotel.price * @num_nights %>
-   <p>Hotel Total: <%= hotel_total %>€</p>
+    <p>✅Hotel: <%= @hotel.price %>€ X <%= @hotel.num_nights %> = <%= @hotel.price * @hotel.num_nights %>€</p>
    <% total = @offer.flight.price + hotel_total %>
    <p>--------------------------------------------------------------------------</p>
-   <p>Total: <%= total %>€</p>
+   <p>💶Total: <%= total %>€</p>
+   <p class="text-grayish">💰Budget left: <%= @offer.budget - total %>€</p>
+
 
   </div>
 </div>
