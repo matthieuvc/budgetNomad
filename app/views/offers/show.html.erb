@@ -17,25 +17,36 @@
           <div class="thin-line-between mb-4"></div>
 
           <div class="offers-card-content">
-            <h6><strong>DEPARTURE</strong></h6>
+            <h6><strong>DEPARTURE/Outbound</strong></h6>
             <div class="d-flex">
+
               <div class="d-flex">
-                <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
-                <div class="me-5 d-flex flex-column justify-content-between">
-                  <p>From: <%= @flight.depart_location %></p>
-                  <p>Departure: <%= @flight.departure %></p>
+                <div class="d-flex">
+                  <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
+
+                  <div class="me-5 d-flex flex-column justify-content-between">
+                    <p>From: <%= @flight.depart_location %></p>
+                    <p>To: <%= @flight.arrival_location %></p>
+                    <p>Departure: <%= @flight.departure_outbound %></p>
+                    <p>Arrival: <%= @flight.departure_inbound %></p>
+                  </div>
+                </div>
+              </div>
+
+              <h6><strong>Inbound</strong></h6>
+                <div class="d-flex">
+                  <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
+
+                  <div class="me-5 d-flex flex-column justify-content-between">
+                    <p>From: <%= @flight.arrival_location %></p>
+                    <p>To: <%= @flight.depart_location%></p>
+                    <p>Departure: <%= @flight.return_outbound %></p>
+                    <p>Arrival: <%= @flight.return_inbound %></p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <h6><strong>ARRIVAL</strong></h6>
-            <div class="d-flex">
-              <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
-              <div class="me-5 d-flex flex-column justify-content-between">
-                <p>To: <%= @flight.arrival_location%></p>
-                <p>Arrival: <%= @flight.arrival %></p>
-              </div>
-            </div>
           </div>
         </div>
         <!-- END FLIGHT CARD -->
@@ -113,6 +124,7 @@
           <div class="thin-line-between mb-2"></div>
 
           <p>Total for the Package:<strong><%= number_with_precision(@flight.price + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
+
         </div>
       </div>
       <!-- END RESUME WITH DETAILS AND PRICE -->
