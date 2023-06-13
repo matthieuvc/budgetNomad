@@ -17,10 +17,12 @@ class FlightsController < ApplicationController
 
   def create
     flight_details = {
-      departure: flight_params["go_departure"].to_datetime,
-      arrival: flight_params["go_arrival"].to_datetime,
+      departure_outbound: flight_params["go_departure"].to_datetime,
+      departure_inbound: flight_params["go_arrival"].to_datetime,
       depart_location: flight_params["go_departure_location"],
       arrival_location: flight_params["go_arrival_location"],
+      return_outbound: flight_params["back_departure"].to_datetime,
+      return_inbound: flight_params["back_arrival"].to_datetime,
       price: flight_params["price_per_passenger"].to_f
     }
 
@@ -34,7 +36,7 @@ class FlightsController < ApplicationController
   private
 
   def flight_params
-    params.require(:flight).permit(:go_departure, :go_departure_location, :go_arrival, :go_arrival_location, :price_per_passenger)
+    params.require(:flight).permit(:go_departure, :go_departure_location, :go_arrival, :go_arrival_location, :back_departure, :back_arrival, :price_per_passenger)
   end
 
   # def source_airport_code

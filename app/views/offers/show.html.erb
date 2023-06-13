@@ -25,8 +25,8 @@
                   <div class="me-5 d-flex flex-column justify-content-between">
                     <p>From: <%= @flight.depart_location %></p>
                     <p>To: <%= @flight.arrival_location %></p>
-                    <p>Departure: <%= @flight.departure %></p>
-                    <p>Arrival: <%= @flight.arrival %></p>
+                    <p>Departure: <%= @flight.departure_outbound %></p>
+                    <p>Arrival: <%= @flight.departure_inbound %></p>
                   </div>
                 </div>
               </div>
@@ -38,8 +38,8 @@
                   <div class="me-5 d-flex flex-column justify-content-between">
                     <p>From: <%= @flight.arrival_location %></p>
                     <p>To: <%= @flight.depart_location%></p>
-                    <p>Departure:</p>
-                    <p>Arrival:</p>
+                    <p>Departure: <%= @flight.return_outbound %></p>
+                    <p>Arrival: <%= @flight.return_inbound %></p>
                   </div>
                 </div>
               </div>
