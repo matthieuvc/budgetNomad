@@ -2,14 +2,14 @@ require 'faker'
 
 # DESTROYING
 
-puts "Cleaning offers database..."
-Offer.destroy_all
-
 puts "Cleaning hotels database..."
 Hotel.destroy_all
 
 puts "Cleaning flights database..."
 Flight.destroy_all
+
+puts "Cleaning offers database..."
+Offer.destroy_all
 
 puts "Cleaning users database..."
 User.destroy_all
