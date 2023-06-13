@@ -178,7 +178,6 @@ class PackagingActivitiesController < ApplicationController
     @packaging_activities.offer = @offer
     @packaging_activities.save
     redirect_to offer_path(@packaging_activities.offer)
-
   end
 
   private

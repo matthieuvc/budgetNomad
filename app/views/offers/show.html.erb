@@ -9,6 +9,7 @@
           <h6>Flight ✈️</h6>
           <div class="thin-line-between mb-4"></div>
 
+
           <div class="offers-card-content">
             <h6><strong>DEPARTURE</strong></h6>
             <div class="d-flex">
@@ -92,20 +93,23 @@
         <!-- END ACTIVITIES CARD -->
       </div>
 
-     <!-- BUDGET CARD -->
-<div class="flights-card ms-auto" style="margin-left: 25px;">
-  <h6>Budget 💰</h6>
-  <div class="thin-line-between mb-4"></div>
 
-  <div class="offers-card-content">
-    <% total_num_night = @hotel.num_nights %>
-    <p>Flight: <%= @flight.price %></p>
-    <p>Hotel: <%= @hotel.price %>€ X <%= @hotel.num_nights %> = <%= @hotel.price * @hotel.num_nights %>€</p>
-    <p>Activities: <%= @packaging_activity.price %>€</p>
-    <p>Total of your package: <strong><%= number_with_precision(@flight.price + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
-  </div>
-</div>
+        <%# RESUME WITH DETAILS AND PRICE %>
+      <div class="flights-card mt-3">
+
+      <h6>Budget 💸 </h6>
+      <div class="thin-line-between-blue mb-4 " ></div>
+
+        <div>
+          <% total_num_night = @hotel.num_nights %>
+          <p>Flight: <%= @flight.price %></p>
+          <p>Hotel: <%= @hotel.price %>€ X <%= @hotel.num_nights %> = <%= @hotel.price * @hotel.num_nights %>€</p>
+          <p>Activities: <%= @packaging_activity.price %>€</p>
+          <p>Total of your package: <strong><%= number_with_precision(@flight.price + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
+        </div>
+      </div>
 <!-- END BUDGET CARD -->
+
     </div>
   </div>
 </div>
