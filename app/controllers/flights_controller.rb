@@ -141,6 +141,3 @@ class FlightsController < ApplicationController
 #     # this is just a comment
 #     fetch_flights(source_code, destination_code, date)
 end
-
-
-# back_layover_location: flight["segments"][1]["legs"][1]["originStationCode"],
