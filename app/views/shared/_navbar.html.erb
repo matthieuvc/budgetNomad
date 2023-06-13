@@ -22,8 +22,12 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%  if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar", alt: "dropdown menu" %>
           </a>
+          <% else %>
+            <%= image_tag "avatar-default.png", crop: :fill, class: "avatar", alt: "dropdown menu" %>
+          <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%=link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
