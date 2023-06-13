@@ -1,12 +1,17 @@
 <div class="container">
 
-  <div class="content_page">
+  <div class="mt-5">
+  <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date %> </i></strong> until <strong><i><%= @offer.end_date %></i></strong></p>
+  <div class="thin-line-between-yellow"></div>
+  </div>
+
+  <div class="d-flex">
+    <div class="content_page">
 
     <h3>2º STEP: Chose your hotel 🏨</h3>
-
       <% @hotel_data.each do |hotel|%>
 
-        <div>
+        <div class="d-flex">
           <div class="flights-card mt-3">
             <div class="d-flex justify-content-between">
 
@@ -26,51 +31,50 @@
                     <p> <%= hotel[:address]%> </p>
                     </div>
                   </div>
-
                 </div>
               </div>
 
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
                 <div>
-                  <h4><strong><%= hotel[:price] %>€</strong></h4>
+                  <h4><strong><%= sprintf("%.2f", hotel[:price]) %>€</strong></h4>
                   <h6>Price per Night</h6>
                 </div>
 
                 <div>
-                <%= form_tag({:controller => "hotels", :action => "create"}, method: :post) do %>
-                <%= hidden_field_tag "hotel[name]", hotel[:name] %>
-                <%= hidden_field_tag "hotel[address]", hotel[:address] %>
-                <%= hidden_field_tag "hotel[rating]", hotel[:rating] %>
-                <%= hidden_field_tag "hotel[price]", hotel[:price] %>
-                <%= hidden_field_tag "hotel[picture]", hotel[:picture] %>
-                <%= label_tag :num_nights, "Number of Nights" %>
-                <%= number_field_tag "num_nights", 1, min: 1 %>
-                <%= hidden_field_tag "hotel[num_nights]", hotel[:num_nights] %>
-                <%= submit_tag "Select", class: "btn_select" %>
-                <% end %>
+                  <%= form_tag({:controller => "hotels", :action => "create"}, method: :post) do %>
+                    <%= hidden_field_tag "hotel[name]", hotel[:name] %>
+                    <%= hidden_field_tag "hotel[address]", hotel[:address] %>
+                    <%= hidden_field_tag "hotel[rating]", hotel[:rating] %>
+                    <%= hidden_field_tag "hotel[price]", hotel[:price] %>
+                    <%= hidden_field_tag "hotel[picture]", hotel[:picture] %>
+                    <%= label_tag :num_nights, "Number of Nights" %>
+                      <%= number_field_tag "num_nights", 1, min: 1 %>
+                      <%= hidden_field_tag "hotel[num_nights]", hotel[:num_nights] %>
+                    <%= submit_tag "Select", class: "btn_select mt-2" %>
+                  <% end %>
                 </div>
-
               </div>
 
             </div>
-
           </div>
-        <% end %>
+        </div>
+      <% end %>
+      </div>
+
+      <div class="flights-card text-end ms-5" style="margin-top: 107px;">
+        <h5><strong> Check out your Package 💰</strong></h5>
+        <div class="thin-line-between-red mb-4"></div>
+
+        <div class="offers-card-content">
+          <%# <p> There's nothing yet...</p> %>
+          <p>✈️ Flight: <%= @offer.flight.price %>€</p>
+
+          <div class="thin-line-between mb-2"></div>
+
+          <p>Total: <strong><%= @offer.flight.price%>€</strong></p>
+          <p class="text-grayish">Budget left: <%= @offer.budget - @offer.flight.price%>€</p>
         </div>
       </div>
-  </div>
-
-
-<!-- NEW BUDGET CARD -->
-  <div class="flights-card ">
-    <h6>Budget 💰</h6>
-    <div class="thin-line-between mb-4"></div>
-
-    <div class="offers-card-content">
-      <p>✅ Flight : <%= @offer.flight.price %>€</p>
-      <p>💶Total: <%= @offer.flight.price  %>€</p>
-       <p class="text-grayish">💰Budget left: <%= @offer.budget - @offer.flight.price %>€</p>
     </div>
-
   </div>
 </div>
