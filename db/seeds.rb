@@ -29,3 +29,13 @@ Offer.create!(destination: "Milan", start_date: Faker::Date.in_date_period, end_
 Offer.create!(destination: "Alicante", start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period, budget: 800, localisation: "Brussels", latitude: 0.4907, longitude: 38.3460, user_id: User.all.sample.id)
 Offer.create!(destination: "Oporto", start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period, budget: 950, localisation: "Brussels", latitude: 8.6291, longitude: 41.1579, user_id: User.all.sample.id)
 Offer.create!(destination: "Genéva", start_date: Faker::Date.in_date_period, end_date: Faker::Date.in_date_period, budget: 1800, localisation: "Brussels", latitude: 6.1432, longitude: 46.2044, user_id: User.all.sample.id)
+
+# myobject.tap do |o|
+#   o.my_method
+# end
+
+# .tap do |offer|
+#   offer.create_flight!()
+#   offer.create_hotel!()
+#   offer.create_activity!()
+# end

@@ -55,19 +55,21 @@
           <% end %>
           </div>
         </div>
+  </div>
+</div>
+<div class="flights-card ">
+  <h6>Budget 💰</h6>
+  <div class="thin-line-between mb-4"></div>
+
+  <div class="offers-card-content">
+   <p>Flight : <%= @offer.flight.price %>€</p>
+   <p>Hotel per night: <%= @offer.hotel.price %>€</p>
+   <p>Number of Nights: <%= @num_nights %></p>
+   <% hotel_total = @offer.hotel.price * @num_nights %>
+   <p>Hotel Total: <%= hotel_total %>€</p>
+   <% total = @offer.flight.price + hotel_total %>
+   <p>--------------------------------------------------------------------------</p>
+   <p>Total: <%= total %>€</p>
 
   </div>
-
-  <div class="basket flights-card mt-3">
-    <h1>BUDGET</h1>
-    <p>Flight: <%= @offer.flight.price %> euros</p>
-    <p>Hotel per night: <%= @offer.hotel.price %> euros</p>
-    <p>Number of Nights: <%= @num_nights %></p>
-    <% hotel_total = @offer.hotel.price * @num_nights %>
-    <p>Hotel Total: <%= hotel_total %> euros</p>
-    <% total = @offer.flight.price + hotel_total %>
-    <p>Total: <%= total %> euros</p>
-  </div>
-
-
 </div>

@@ -60,10 +60,25 @@
       </div>
   </div>
 
-  <div class="basket flights-card mt-3">
+<%# IGNORE THE FIRST ONE FOR NOW %>
+
+  <%# <div class="basket flights-card mt-3">
     <h3>Budget</h3>
     <p>Prix de l'avion sélectionné : <%= @offer.flight.price %> euros</p>
-    <p>Total: <%= @offer.flight.price  %> euros</p>
-  </div>
+    <p>Total: <%# @offer.flight.price  %> euros</p>
 
+
+
+<!-- NEW BUDGET CARD -->
+  <div class="flights-card ">
+    <h6>Budget 💰</h6>
+    <div class="thin-line-between mb-4"></div>
+
+    <div class="offers-card-content">
+      <p>Flight : <%= @offer.flight.price %>€</p>
+      <p>--------------------------------------------------------------------------</p>
+      <p>Total: <%= @offer.flight.price  %>€</p>
+    </div>
+
+  </div>
 </div>

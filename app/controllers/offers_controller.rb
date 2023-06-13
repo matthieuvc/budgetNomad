@@ -8,6 +8,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     @flight = @offer.flight
     @hotel = @offer.hotel
+    @packaging_activity = @offer.packaging_activity
   end
 
   def new
