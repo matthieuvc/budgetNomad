@@ -2,7 +2,7 @@
 
   <div class="content_page">
 
-  <h3>1º STEP: Chose your flight ✈️ </h3>
+  <h3>4º STEP: Chose your flight back ✈️ </h3>
 
 
 
@@ -43,7 +43,7 @@
                   <h6>Price</h6>
                 </div>
                 <div>
-                  <%= button_to "Select", {:controller => "flights", :action => "create", flight: flight, offer: params[:offer]}, class: "btn_select", method: :post %>
+                  <%= button_to "Select", {:controller => "flights", :action => "create_back", flight: flight, offer_id: @offer.id}, class: "btn_select", method: :post %>
                 </div>
               </div>
 

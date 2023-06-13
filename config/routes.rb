@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :offers, only: [:show,:create]
   resources :flights, only: [:index, :create]
+  # do
+  #   collection do
+  #     get 'index_back'
+  #     post 'create_back'
+  #   end
+  # end
   resources :hotels, only: [:index, :create]
   resources :packaging_activities, only: [:index, :create]
   get "dashboard", to: "pages#dashboard"

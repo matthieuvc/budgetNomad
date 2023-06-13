@@ -31,7 +31,7 @@ class FlightsController < ApplicationController
         localisation: "BRUXELLES AIRPORT",
         destination: "MADRID AIRPORT",
         start_date: "2023-06-18 22:35:00",
-        end_date: "2023-06-18 23:45:00+",
+        end_date: "2023-06-18 23:45:00",
         price_per_passenger: 113.44
       },
       {
@@ -43,6 +43,48 @@ class FlightsController < ApplicationController
       }
     ]
   end
+
+  # def index_back
+  #   @offer = Offer.find(params[:offer_id])
+  #   @flight_data = [
+  #     {
+  #       localisation: "IBIZA AIRPORT",
+  #       destination: "BARCELONE AIRPORT",
+  #       start_date: "2023-06-25 15:45:00",
+  #       end_date: "2023-06-25 17:55:00",
+  #       price_per_passenger: 62.52
+  #     },
+  #     {
+  #       localisation: "IBIZA AIRPORT",
+  #       destination: "BRUXELLES CHARLEROI AIRPORT",
+  #       start_date: "2023-06-25 20:10:00",
+  #       end_date: "2023-06-25 22:10:00",
+  #       price_per_passenger: 67.29
+  #     },
+  #     {
+  #       localisation: "IBIZA AIRPORT",
+  #       destination: "ALICANTE AIRPORT",
+  #       start_date: "2023-06-25 15:45:00",
+  #       end_date: "2023-06-25 22:35:00",
+  #       price_per_passenger: 69.00
+  #     },
+  #     {
+  #       localisation: "IBIZA AIRPORT",
+  #       destination: "MADRID AIRPORT",
+  #       start_date: "2023-06-25 22:35:00",
+  #       end_date: "2023-06-25 23:45:00",
+  #       price_per_passenger: 113.44
+  #     },
+  #     {
+  #       localisation: "IBIZA AIRPORT",
+  #       destination: "PALMA DE MALLORCA",
+  #       start_date: "2023-06-25 22:05:00",
+  #       end_date: "2023-06-25 00:55:00",
+  #       price_per_passenger: 123.97
+  #     }
+  #   ]
+  # end
+
 
   def new
     @flight = Flight.new
@@ -64,6 +106,23 @@ class FlightsController < ApplicationController
 
     redirect_to hotels_path(offer_id: @offer.id, flight_id: @flight.id)
   end
+
+  # def create_back
+  #   flight_details = {
+  #     departure: flight_params["start_date"].to_datetime,
+  #     arrival: flight_params["end_date"].to_datetime,
+  #     depart_location: flight_params["localisation"],
+  #     arrival_location: flight_params["destination"],
+  #     price: flight_params["price_per_passenger"].to_f
+  #   }
+
+  #   @flight = Flight.new(flight_details)
+  #   @offer = Offer.find(params[:offer])
+  #   @flight.offer = @offer
+  #   @flight.save!
+
+  #   redirect_to offer_path(offer_id: @offer.id, back_flight_id: @flight.id)
+  # end
 
   private
 
