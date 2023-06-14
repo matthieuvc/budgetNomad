@@ -21,7 +21,7 @@ class FlightsController < ApplicationController
       departure: flight["departure"].to_datetime,
       depart_location: flight["departure_location"],
       arrival: flight["arrival"].to_datetime,
-      arrival_location: flight_params["arrival_location"],
+      arrival_location: flight["arrival_location"],
       price: flight["price_per_passenger"].to_f
     }
     @flight = Flight.new(flight_details)
