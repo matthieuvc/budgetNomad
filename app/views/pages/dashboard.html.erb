@@ -2,8 +2,19 @@
 
   <div class="content_page">
 
-    <h3>Welcome to your account, <%= current_user.name %>!</h3>
+    <h3>Welcome to your account, <%= current_user.email %>!</h3>
 
+    <h1>Upcoming bookings</h1>
+      <% @offers.each do |offer| %>
+      <div>
+        <%= offer.destination %>
+        <%= offer.start_date %>
+        <%= offer.end_date %>
+        <%= offer.flight.price %>
+        <%= offer.hotel.price %>
+
+      <% end %>
+      <div>
   </div>
 
 </div>
