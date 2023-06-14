@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="mt-5">
-  <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date %> </i></strong> until <strong><i><%= @offer.end_date %></i></strong></p>
+  <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date.strftime("%A, %b %d") %> </i></strong> until <strong><i><%= @offer.end_date.strftime("%A, %b %d") %></i></strong></p>
   <div class="thin-line-between-yellow"></div>
   </div>
 
@@ -61,18 +61,17 @@
       <% end %>
       </div>
 
-      <div class="flights-card text-end ms-5" style="margin-top: 107px;">
+      <div class="flights-card text-end ms-5 sticky-top" style="margin-top: 107px;">
         <h5><strong> Check out your Package 💰</strong></h5>
         <div class="thin-line-between-red mb-4"></div>
 
         <div class="offers-card-content">
           <%# <p> There's nothing yet...</p> %>
-          <p>✈️ Flight: <%= @offer.flight.price %>€</p>
-
+          <p>✈️ Flight: <%= @offer.flights.sum(:price) / 2 %>€</p>
           <div class="thin-line-between mb-2"></div>
 
-          <p>Total: <strong><%= @offer.flight.price%>€</strong></p>
-          <p class="text-grayish">Budget left: <%= @offer.budget - @offer.flight.price%>€</p>
+          <p>Total: <strong><%= @offer.flights.sum(:price) / 2 %>€</strong></p>
+          <p class="text-grayish">Budget left: <%= @offer.budget - @offer.flights.sum(:price) / 2 %>€</p>
         </div>
       </div>
     </div>
