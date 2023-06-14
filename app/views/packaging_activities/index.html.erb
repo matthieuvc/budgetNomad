@@ -70,14 +70,14 @@
 
         <div class="offers-card-content">
           <%# <p> There's nothing yet...</p> %>
-          <p>✈️ Flight: <strong><%= @offer.flight.price %>€</strong></p>
+          <p>✈️ Flight: <strong><%= @offer.flights.sum(:price) / 2  %>€</strong></p>
           <% hotel_total = @offer.hotel.price * @num_nights %>
           <p>🏨 Hotel x  <%= @num_nights %> days: <strong><%= hotel_total %>€</strong></p>
 
           <div class="thin-line-between mb-2"></div>
 
-          <p>Total: <strong><%= @offer.flight.price + hotel_total%>€</strong></p>
-          <p class="text-grayish">Budget left: <%= @offer.budget - @offer.flight.price - hotel_total%>€</p>
+          <p>Total: <strong><%= @offer.flights.sum(:price) / 2  + hotel_total%>€</strong></p>
+          <p class="text-grayish">Budget left: <%= @offer.budget - @offer.flights.sum(:price) / 2  - hotel_total%>€</p>
         </div>
       </div>
 
