@@ -4,7 +4,7 @@
     <h1 class="text-center">Yay! Now you can enjoy the trip 😎</h1>
 
     <div class="mt-5">
-    <p>Upcomming Trip: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Yoour vacation starts at <strong><i> <%= @offer.start_date %> </i></strong> until <strong><i><%= @offer.end_date %></i></strong></p>
+    <p>Upcomming Trip: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date.strftime("%A, %b %d") %> </i></strong> until <strong><i><%= @offer.end_date.strftime("%A, %b %d") %></i></strong></p>
     <div class="thin-line-between-yellow"></div>
     </div>
 
@@ -61,7 +61,7 @@
             <div class="offers-card-content">
               <div class="d-flex w-100">
                 <div class="me-3">
-                <%= image_tag @hotel.picture, class: "image-hotel", alt: "" %>              
+                <%= image_tag @hotel.picture, class: "image-hotel", alt: "" %>
                 </div>
                 <div class="w-100">
                   <div class="w-100 pe-3 d-flex justify-content-between">
@@ -122,7 +122,7 @@
 
 
       <%# RESUME WITH DETAILS AND PRICE %>
-      <div class="flights-card text-end ms-5" style="margin-top: 16px;">
+      <div class="flights-card text-end ms-5 sticky-top" style="margin-top: 16px;">
         <h5><strong> Your Budget 💸</strong></h5>
         <div class="thin-line-between-red mb-4"></div>
 

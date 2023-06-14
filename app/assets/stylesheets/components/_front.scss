@@ -16,7 +16,6 @@
 // SELECT PROCESS
 
 .offers-card {
-  cursor: pointer;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
   border-radius: 8px;
@@ -32,7 +31,6 @@
 }
 
 .flights-card {
-  cursor: pointer;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
   border-radius: 8px;
@@ -43,7 +41,6 @@
 }
 
 .hotels-card {
-  cursor: pointer;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 16px 0px;
   border-radius: 8px;
@@ -145,7 +142,7 @@
 .thin-line-between {
   height: 1px;
   width: auto;
-  border: 1px solid rgb(231, 231, 231);
+  border: 1px solid #e7e7e7;
   border-radius: 1px;
 }
 
@@ -166,6 +163,13 @@
 .thin-line-between-blue-card {
   height: 1px;
   width: 100px;
+  border: 1px solid #22A699;
+  border-radius: 2px;
+}
+
+.thin-line-between-blue-card-small {
+  height: 1px;
+  width: 70px;
   border: 1px solid #22A699;
   border-radius: 2px;
 }
@@ -206,4 +210,29 @@
   font-weight: 600;
   font-size: 40px;
   margin-bottom: 20px;
+}
+
+.box-flight-content {
+  // border: 1px solid #22A699;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 0px;
+}
+
+.btn_connection{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 25px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: 300;
+  color: white;
+  background-color: #22A699;
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
