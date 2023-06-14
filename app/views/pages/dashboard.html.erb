@@ -1,8 +1,21 @@
 <div class="container">
 
   <div class="content_page">
-
     <h3>Welcome to your account, <%= current_user.name %>!</h3>
+
+    <% Offer.all.each do |offer| %>
+
+      <div class="flights-card mt-3">
+        <p>Destination:<%= offer.destination %></p>
+        <p>Budget:<%= offer.budget %></p>
+        <p>Start:<%= offer.start_date %></p>
+        <p>End:<%= offer.end_date %></p>
+        <p>Localization:<%= offer.localisation %></p>
+        <p>Longitude:<%= offer.longitude %></p>
+        <p>Latitude:<%= offer.latitude %></p>
+      </div>
+      <% end %>
+    </div>
 
   </div>
 
