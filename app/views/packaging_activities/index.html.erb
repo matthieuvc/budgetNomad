@@ -1,6 +1,7 @@
 
 <div class="container">
 
+
   <div class="mt-5">
   <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date %> </i></strong> until <strong><i><%= @offer.end_date %></i></strong></p>
   <div class="thin-line-between-yellow"></div>
@@ -8,6 +9,24 @@
 
   <div class="d-flex">
     <div class="content_page">
+    <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: packaging_activities_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= hidden_field_tag :hotel_id,
+          params[:hotel_id]
+      %>
+      <%= hidden_field_tag :offer_id,
+          params[:offer_id]
+      %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
     <h3>3º STEP: Chose one activity package 🏄‍♂️ </h3>
       <% @activity_data.each do |activity|%>
@@ -19,7 +38,7 @@
               <div class="w-100">
                 <div class="d-flex w-100">
                   <div class="me-3">
-                    <%# <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
+                    <%= image_tag activity[:picture], class: "image-hotel", alt: "" %>
                   </div>
 
                   <div class="w-100">
