@@ -44,15 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
 
   create_table "flights", force: :cascade do |t|
     t.float "price"
-    t.datetime "departure_outbound"
-    t.datetime "departure_inbound"
+    t.datetime "departure"
+    t.datetime "arrival"
     t.bigint "offer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "depart_location"
     t.string "arrival_location"
-    t.datetime "return_outbound"
-    t.datetime "return_inbound"
     t.index ["offer_id"], name: "index_flights_on_offer_id"
   end
 

@@ -6,7 +6,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-    @flight = @offer.flight
+    @flights = @offer.flights
     @hotel = @offer.hotel
     @packaging_activity = @offer.packaging_activity
   end

@@ -11,44 +11,12 @@
     <div class="d-flex">
       <div class="d-flex flex-column">
         <!-- FLIGHT CARD -->
-        <div>
-          <div class="flights-card mt-3">
-            <h6>Flight ✈️</h6>
-            <div class="thin-line-between mb-4"></div>
-
-            <div class="offers-card-content">
-              <h6><strong>DEPARTURE/Outbound</strong></h6>
-              <div class="d-flex">
-
-                <div class="d-flex">
-                  <div class="d-flex">
-                    <div class="me-2"><i class="fa-solid fa-plane-departure"></i></div>
-
-                    <div class="me-5 d-flex flex-column justify-content-between">
-                      <p>From: <%= @flight.depart_location %></p>
-                      <p>To: <%= @flight.arrival_location %></p>
-                      <p>Departure: <%= @flight.departure_outbound %></p>
-                      <p>Arrival: <%= @flight.departure_inbound %></p>
-                    </div>
-                  </div>
-                </div>
-
-                <h6><strong>Inbound</strong></h6>
-                  <div class="d-flex">
-                    <div class="me-2"><i class="fa-solid fa-plane-arrival"></i></div>
-
-                    <div class="me-5 d-flex flex-column justify-content-between">
-                      <p>From: <%= @flight.arrival_location %></p>
-                      <p>To: <%= @flight.depart_location%></p>
-                      <p>Departure: <%= @flight.return_outbound %></p>
-                      <p>Arrival: <%= @flight.return_inbound %></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <%  @flights.each do |flight| %>
+            <p><%= flight.departure %></p>
+            <p><%= flight.depart_location %></p>
+            <p><%= flight.arrival %></p>
+            <p><%= flight.arrival_location %></p>
+          <% end %>
           <!-- END FLIGHT CARD -->
 
           <!-- HOTEL CARD -->
@@ -127,13 +95,13 @@
         <div class="thin-line-between-red mb-4"></div>
 
         <div class="offers-card-content">
-          <p>✈️ Flight: <strong><%= sprintf("%.2f", @offer.flight.price) %>€</strong></p>
+          <p>✈️ Flight: <strong><%= sprintf("%.2f", @offer.flights.sum(:price) / 2 ) %>€</strong></p>
           <p>🏨 Hotel x <%= @hotel.num_nights %> days: <strong><%= sprintf("%.2f", @hotel.price * @hotel.num_nights) %>€</strong></p>
           <p>🏄‍♂️ Activity: <strong> <%= sprintf("%.2f", @packaging_activity.price) %> €</strong></p>
 
           <div class="thin-line-between mb-2"></div>
 
-          <p>Total for the Package:<strong><%= number_with_precision(@flight.price + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
+          <p>Total for the Package:<strong><%= number_with_precision(@offer.flights.sum(:price) / 2  + @hotel.price * @hotel.num_nights + @packaging_activity.price, precision: 2) %>€</strong></p>
 
         </div>
       </div>
