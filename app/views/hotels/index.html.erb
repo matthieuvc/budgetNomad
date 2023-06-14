@@ -18,7 +18,7 @@
               <div class="w-100">
                 <div class="d-flex w-100">
                   <div class="me-3">
-                    <%= image_tag hotel[:picture], class: "image-hotel", alt: "" %>
+                    <%= image_tag hotel[:picture], class: "image-hotel", alt: ""%>
                   </div>
 
                   <div class="w-100">
@@ -36,12 +36,12 @@
 
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
                 <div>
-                  <h4><strong><%= sprintf("%.2f", hotel[:price]) %>€</strong></h4>
+                  <h4><strong><%= hotel[:price] %>€</strong></h4>
                   <h6>Price per Night</h6>
                 </div>
 
                 <div>
-                  <%= form_tag({:controller => "hotels", :action => "create"}, method: :post) do %>
+                  <%= form_tag({controller: "hotels", :action => "create", hotel: hotel, offer: params[:offer]}, method: :post) do %>
                     <%= hidden_field_tag "hotel[name]", hotel[:name] %>
                     <%= hidden_field_tag "hotel[address]", hotel[:address] %>
                     <%= hidden_field_tag "hotel[rating]", hotel[:rating] %>

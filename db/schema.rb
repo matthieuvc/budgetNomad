@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
     t.text "description"
     t.string "city"
     t.integer "price"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "activity1"
@@ -98,7 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
     t.string "activity3"
     t.string "activity4"
     t.bigint "offer_id", null: false
-    t.string "picture"
     t.index ["offer_id"], name: "index_packaging_activities_on_offer_id"
   end
 
