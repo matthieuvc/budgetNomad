@@ -29,23 +29,11 @@ class PackagingActivitiesController < ApplicationController
   end
 
   def create
-    package_details = {
-      category: packaging_activities_params["category"],
-      activity1: packaging_activities_params["activity1"],
-      activity2: packaging_activities_params["activity2"],
-      activity3: packaging_activities_params["activity3"],
-      activity4: packaging_activities_params["activity4"],
-      price: packaging_activities_params["price"],
-      city: packaging_activities_params["city"],
-      rating: packaging_activities_params["rating"],
-      description: packaging_activities_params["description"],
-      picture: packaging_activities_params["picture"]
-    }
-    @packaging_activities = PackagingActivity.new(package_details)
+    @packaging_activity = PackagingActivity.find(params[:packaging_activities])
     @offer = Offer.find(params[:offer_id])
-    @packaging_activities.offer = @offer
-    @packaging_activities.save
-    redirect_to offer_path(@packaging_activities.offer)
+    @offer.packaging_activity = @packaging_activity
+    @offer.save
+    redirect_to offer_path(@offer)
   end
 
   private
