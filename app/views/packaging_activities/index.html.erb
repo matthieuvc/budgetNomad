@@ -71,7 +71,7 @@
                 </div>
 
                 <div>
-                  <%= button_to "Select", {:controller => "packaging_activities", :action => "create", packaging_activities: activity, offer_id: @offer.id},class: "btn_select", method: :post %>
+                  <%= button_to "Select", {:controller => "packaging_activities", :action => "create", packaging_activities: activity, offer_id: @offer.id},class: "btn_select", data: { turbo_method: :patch } %>
                 </div>
 
               </div>

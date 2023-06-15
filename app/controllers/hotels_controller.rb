@@ -5,14 +5,8 @@ class HotelsController < ApplicationController
 
   def index
     @offer = Offer.find(params[:offer_id])
-    @hotel_data = fetch_hotels
-    # @hotel_data = [
-    #   { name: "Moonlit Retreat", address: "456 Elm Street", rating: 3.8, price: 80, picture:"ibizahotel2.png"},
-    #   { name: "Aurora Haven", address: "321 Pine Street", rating: 3.5, price: 90, picture:"ibizahotel4.png"},
-    #   { name: "Serenity Springs", address: "987 Birch Street", rating: 3.9, price: 110, picture:"ibizahotel5.png"},
-    #   { name: "The Azure Oasis", address: "123 Main Street", rating: 4.5, price: 120, picture: "ibzahotel1.png"},
-    #   { name: "Stellar Heights", address: "789 Oak Street", rating: 4.2, price: 150, picture:"ibizahotel3.png"},
-    # ]
+    #@hotel_data = fetch_hotels
+    @hotel_data = [{:name=>"Aparthotel Vibra Jabeque Soul", :rating=>4, :price=>121, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/dc/40/76/p.jpg?w=400&h=300&s=1"}, {:name=>"1. Hard Rock Hotel Ibiza", :rating=>4.5, :price=>143, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/90/2e/17/hard-rock-hotel-ibiza.jpg?w=400&h=300&s=1"}, {:name=>"2. Ushuaia Ibiza Beach Hotel", :rating=>4.5, :price=>91, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/c2/56/37/pool-building.jpg?w=400&h=300&s=1"}, {:name=>"3. Grand Palladium White Island Resort & Spa", :rating=>4.5, :price=>138, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/f1/6c/ca/grand-palladium-white.jpg?w=400&h=300&s=1"}, {:name=>"4. Hotel Torre del Mar", :rating=>4.5, :price=>114, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/08/39/91/infinity-pool.jpg?w=400&h=300&s=1"}, {:name=>"5. ME Ibiza - The Leading Hotels of the World", :rating=>4.5, :price=>109, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/6b/02/13/me-ibiza-the-leading.jpg?w=400&h=300&s=1"}, {:name=>"Suncoast Ibiza Hotel - Adults Only -", :rating=>3.5, :price=>116, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/8a/a9/7d/doble-room.jpg?w=400&h=300&s=1"}, {:name=>"6. Palladium Hotel Palmyra", :rating=>4.5, :price=>108, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/8e/6a/8a/palladium-hotel-palmyra.jpg?w=400&h=300&s=1"}, {:name=>"7. TRS Ibiza Hotel", :rating=>4.5, :price=>83, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/52/5c/c5/signature-level-suite.jpg?w=400&h=300&s=1"}, {:name=>"8. Grand Palladium Palace Ibiza Resort & Spa", :rating=>4.5, :price=>102, :address=>nil, :picture=>"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/7d/8d/49/piscina.jpg?w=400&h=300&s=1"}]
   end
 
   def new
@@ -45,7 +39,7 @@ class HotelsController < ApplicationController
     http.use_ssl = true
 
     request = Net::HTTP::Get.new(url)
-    request["X-RapidAPI-Key"] = '503a48dfecmsh69c31a138b3f12dp189e0bjsn731e815fb930'
+    request["X-RapidAPI-Key"] = '1d9f5d7888msha32a10e846bf6f6p1f8d3bjsn911b18232b2e'
     request["X-RapidAPI-Host"] = 'tripadvisor16.p.rapidapi.com'
 
     response = http.request(request).read_body
@@ -65,7 +59,7 @@ class HotelsController < ApplicationController
     http.use_ssl = true
 
     request = Net::HTTP::Get.new(url)
-    request["X-RapidAPI-Key"] = '503a48dfecmsh69c31a138b3f12dp189e0bjsn731e815fb930'
+    request["X-RapidAPI-Key"] = '1d9f5d7888msha32a10e846bf6f6p1f8d3bjsn911b18232b2e'
     request["X-RapidAPI-Host"] = 'tripadvisor16.p.rapidapi.com'
 
     response = http.request(request).read_body

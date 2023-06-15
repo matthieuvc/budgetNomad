@@ -15,9 +15,8 @@
           <div class="flights-card mt-3">
             <div class="d-flex justify-content-between">
 
-              <%# FLIGHT INFO OF THE CARD %>
-
-              <div class="w-100 d-flex justify-content-between">
+              <%# FLIGHT CARD %>
+              <%# <div class="w-100 d-flex justify-content-between"> %>
 
                 <div>
                   <% total_price = 0 %>
@@ -42,17 +41,21 @@
                 <% total_price = flight[:price_per_passenger] * departure.count %>
                 <% end %>
                 <div>
+              <%# END OF FLIGHT CARD %>
+
 
               <%# PRICE PART OF THE CARD %>
-
                 <div>
                   <h6>Price</h6>
                   <h4><strong><%= sprintf("%.2f", total_price)%>€</strong></h4>
                 </div>
                   <%= button_to "Select", {:controller => "flights", :action => "create", flight: {going: departure, comming: @return_data[@departure_data.index(departure)] }, offer: params[:offer]}, class: "btn_select", method: :post %>
                 </div>
-
               </div>
+              <%# END OF PRICE PART OF THE CARD %>
+
+
+
 
             </div>
           </div>
