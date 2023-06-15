@@ -283,11 +283,40 @@
 }
 
 .tag-category {
-  border: 2px solid #f24c3e;
+  border: 2px solid #F24C3D;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: small;
   p {
     margin-bottom: 0px;
   }
+}
+
+i {
+  color:#F24C3D;
+}
+.hide-heading {
+
+  h6 {
+    display: none;
+  }
+
+  .thin-line-between-blue-card-small {
+    border-color:white;
+  }
+
+  &2 {
+    h6 {
+      display: block;
+      color:#0E0000;
+    }
+
+    .thin-line-between-blue-card-small {
+      border-color: #22A699;
+    }
+  }
+}
+
+.card-img-top {
+  object-fit: cover;
 }

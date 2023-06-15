@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
   </div>
 
-    <h3>3º STEP: Chose one activity package 🏄‍♂️ </h3>
+    <h3>3º STEP: Chose one activity package <i class="fa-regular fa-face-laugh-wink"></i> </h3>
 
     <div class="col-sm-8 my-3">
       <%= form_with url: packaging_activities_path, method: :get, class: "d-flex" do %>
@@ -86,14 +86,14 @@
       </div>
 
       <div class="flights-card text-end ms-5 sticky-top basket" style="margin-top: 107px;">
-        <h5><strong> Check out your Package 💰</strong></h5>
+        <h5><strong> Check out your Package <i class="fa-solid fa-sack-dollar"></i></strong></h5>
         <div class="thin-line-between-red mb-4"></div>
 
         <div class="offers-card-content">
           <%# <p> There's nothing yet...</p> %>
-          <p>✈️ Flight: <strong><%= @offer.flights.sum(:price) / 2  %>€</strong></p>
+          <p><i class="fa-solid fa-paper-plane"></i> Flight: <strong><%= @offer.flights.sum(:price) / 2  %>€</strong></p>
           <% hotel_total = @offer.hotel.price * @num_nights %>
-          <p>🏨 Hotel x  <%= @num_nights %> days: <strong><%= hotel_total %>€</strong></p>
+          <p><i class="fa-solid fa-hotel"></i> Hotel x  <%= @num_nights %> days: <strong><%= hotel_total %>€</strong></p>
 
           <div class="thin-line-between mb-2"></div>
 

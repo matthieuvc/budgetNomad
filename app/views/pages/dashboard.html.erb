@@ -7,7 +7,7 @@
   <div class="cards d-flex justify-content-between">
     <% @offers.all.each do |offer| %>
       <div class="card m-4" style="width: 2000vw;">
-        <img class="card-img-top" src=<%=offer.hotel[:picture]%> alt="Card image cap">
+        <%= image_tag offer.hotel.picture, class: "card-img-top", alt: "Card image cap", height: 300%>
       <div class="card-body">
         <h5 class="card-title">Trip to: <%= offer.destination %></h5>
         <p class="card-text"><%= offer.start_date %> to <%= offer.end_date %></p>
@@ -16,4 +16,3 @@
       </div>
       <% end %>
     <div>
-
