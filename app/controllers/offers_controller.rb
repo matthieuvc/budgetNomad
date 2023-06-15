@@ -15,10 +15,6 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
-  def edit
-    raise
-  end
-
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
