@@ -2,7 +2,7 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_one :hotel
   has_many :flights
-  has_one :packaging_activity
+  belongs_to :packaging_activity, optional: true
   geocoded_by :destination
   validates :budget, presence: true
   validates :budget, :numericality => { :greater_than => 0 }

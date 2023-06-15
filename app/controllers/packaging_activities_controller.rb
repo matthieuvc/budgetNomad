@@ -6,11 +6,13 @@ class PackagingActivitiesController < ApplicationController
   def index
   if params[:query].present?
     sql_subquery = <<~SQL
-    activities.category @@ :query
-    OR activities.activity1 @@ :query
-    OR activities.activity2 @@ :query
-    OR activities.activity3 @@ :query
-    OR activities.activity4 @@ :query
+    category @@ :query
+    OR description @@ :query
+    OR city @@ :query
+    OR activity1 @@ :query
+    OR activity2 @@ :query
+    OR activity3 @@ :query
+    OR activity4 @@ :query
     SQL
     @activity_data = PackagingActivity.where(sql_subquery, query: params[:query])
     else
@@ -19,7 +21,7 @@ class PackagingActivitiesController < ApplicationController
   @offer = Offer.find(params[:offer_id])
   @hotel = Hotel.find(params[:hotel_id])
   @num_nights = @hotel.num_nights
-  @activity_data.shuffle!
+  @activity_data.shuffle
   end
 
   def new
