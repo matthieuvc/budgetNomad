@@ -259,3 +259,35 @@
     border-color: white;
   }
 }
+
+.width-40px {
+  width: 40px;
+}
+
+.basket {
+  top: 25px;
+}
+
+.search-input {
+  background-color: white;
+}
+
+.btn-search {
+  background-color: #22A699;
+  border-color: #22A699;
+}
+
+.btn-search:hover {
+  background-color: #148176;
+  border-color: #148176;
+}
+
+.tag-category {
+  border: 2px solid #f24c3e;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: small;
+  p {
+    margin-bottom: 0px;
+  }
+}

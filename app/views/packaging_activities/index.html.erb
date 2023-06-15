@@ -10,25 +10,27 @@
   <div class="d-flex">
     <div class="content_page">
     <div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: packaging_activities_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Type a keyword"
-        %>
-      <%= hidden_field_tag :hotel_id,
-          params[:hotel_id]
-      %>
-      <%= hidden_field_tag :offer_id,
-          params[:offer_id]
-      %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
   </div>
 
     <h3>3º STEP: Chose one activity package 🏄‍♂️ </h3>
+
+    <div class="col-sm-8 my-3">
+      <%= form_with url: packaging_activities_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control search-input",
+              placeholder: "Type a keyword"
+          %>
+        <%= hidden_field_tag :hotel_id,
+            params[:hotel_id]
+        %>
+        <%= hidden_field_tag :offer_id,
+            params[:offer_id]
+        %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary btn-search" %>
+      <% end %>
+    </div>
+
       <% @activity_data.each do |activity|%>
 
         <div class="d-flex">
@@ -43,7 +45,7 @@
 
                   <div class="w-100">
                     <div class="w-100 pe-3 d-flex justify-content-between">
-                      <div><h4><strong> <%= activity[:category]%> </strong></h4></div>
+                      <div><p class="tag-category"><strong> <%= activity[:category]%> </strong></p></div>
                       <div><p><%= activity[:rating]%><i class="fa-solid fa-star ms-2"></i></p></div>
                     </div>
 
@@ -83,7 +85,7 @@
       <% end %>
       </div>
 
-      <div class="flights-card text-end ms-5 sticky-top" style="margin-top: 107px;">
+      <div class="flights-card text-end ms-5 sticky-top basket" style="margin-top: 107px;">
         <h5><strong> Check out your Package 💰</strong></h5>
         <div class="thin-line-between-red mb-4"></div>
 
