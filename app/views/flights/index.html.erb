@@ -20,14 +20,14 @@
               <% departure.each_with_index do |flight, index| %>
                 <h6 class="mb-0"><strong>DEPARTURE</strong></h6>
                 <div class="thin-line-between-blue-card mb-2"></div>
-                <p><%= flight[:departure_location]%> // <%= flight[:departure]%></p>
-                <p><%= flight[:arrival_location]%> // <%=flight[:arrival]%></p>
+                <p><%= flight[:departure_location]%> // <%= flight[:departure].to_datetime.strftime("%b %e, %l:%M %p") %></p>
+                <p><%= flight[:arrival_location]%> // <%=flight[:arrival].to_datetime.strftime("%b %e, %l:%M %p")%></p>
 
                 <h6 class="mb-0"><strong>RETURN</strong></h6>
                 <div class="thin-line-between-blue-card-small mb-2"></div>
                 <% return_flight =  @return_data[@departure_data.index(departure)].first %>
-                <p><%= return_flight[:departure_location]%>// <%= return_flight[:departure]%></p>
-                <p><%= return_flight[:arrival_location]%>// <%= return_flight[:arrival]%></p>
+                <p><%= return_flight[:departure_location]%>// <%= return_flight[:departure].to_datetime.strftime("%b %e, %l:%M %p")%></p>
+                <p><%= return_flight[:arrival_location]%>// <%= return_flight[:arrival].to_datetime.strftime("%b %e, %l:%M %p")%></p>
               </div>
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between offers-card-content<%= index %>">
               <% total_price = flight[:price_per_passenger] * departure.count %>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="flights-card text-end ms-5" style="margin-top: 107px;">
-        <h5><strong> Check out your Package :moneybag:</strong></h5>
+        <h5><strong> Check out your Package 💰</strong></h5>
         <div class="thin-line-between-red mb-4"></div>
 
         <div class="offers-card-content">
