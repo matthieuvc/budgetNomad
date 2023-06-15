@@ -236,3 +236,26 @@
   z-index: 0;
   box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
 }
+
+.flights-card .dup-return:nth-child(3) {
+  display: none;
+}
+.flights-card .dup-return:nth-child(4) {
+  display: none;
+}
+
+
+.offers-card-content0 {
+  text-align: left !important;
+  padding-top: 0px;
+  border: none;
+  h6 {
+    color: white;
+  }
+  .thin-line-between-blue-card {
+    border-color: white;
+  }
+  .thin-line-between-blue-card-small {
+    border-color: white;
+  }
+}
