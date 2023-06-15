@@ -19,24 +19,49 @@ end
 
 User.create!(name: "User", email: "test@test.com", password: "123456")
 
-puts "Creating 5 default offers..."
+puts "Creating 36 default offers..."
 
-# Offer.create!(destination: "Berlin", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1305, localisation: "Brussels", latitude: 13.4050, longitude: 52.5200, user_id: User.all.sample.id).tap do |offer|
-#   offer.create_flight!(price: 285, departure_outbound: "", departure_inbound: "", depart_location: "", arrival_location: "",return_outbound: "", return_inbound: "")
-#   offer.create_hotel!(price: 350, name: "", address: "", rating: 4, num_nights: 2, picture: "")
-#   offer.create_activity!(category: "", rating: 5, description: "", city: "", price: 320, picture: "", activity1: "", activity2: "", activity3: "", activity4: "")
-# end
-
+Offer.create!(destination: "Berlin", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1305, localisation: "Brussels", latitude: 13.4050, longitude: 52.5200, user_id: User.all.sample.id)
 Offer.create!(destination: "Milan", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1750, localisation: "Brussels", latitude: 9.1900, longitude: 45.4642, user_id: User.all.sample.id)
-
 Offer.create!(destination: "Alicante", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 800, localisation: "Brussels", latitude: 0.4907, longitude: 38.3460, user_id: User.all.sample.id)
-
-Offer.create!(destination: "Oporto", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 950, localisation: "Brussels", latitude: 8.6291, longitude: 41.1579, user_id: User.all.sample.id)
-
+Offer.create!(destination: "Porto", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 950, localisation: "Brussels", latitude: 8.6291, longitude: 41.1579, user_id: User.all.sample.id)
 Offer.create!(destination: "Genéva", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1800, localisation: "Brussels", latitude: 6.1432, longitude: 46.2044, user_id: User.all.sample.id)
+Offer.create!(destination: "Paris", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1200, localisation: "Brussels", latitude: 2.3522, longitude: 48.8566, user_id: User.all.sample.id)
+Offer.create!(destination: "Barcelona", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1500, localisation: "Brussels", latitude: 2.1734, longitude: 41.3851, user_id: User.all.sample.id)
+Offer.create!(destination: "Berlin", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1000, localisation: "Brussels", latitude: 13.4049, longitude: 52.5200, user_id: User.all.sample.id)
+Offer.create!(destination: "Amsterdam", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1350, localisation: "Brussels", latitude: 4.8970, longitude: 52.3779, user_id: User.all.sample.id)
+Offer.create!(destination: "Rome", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1700, localisation: "Brussels", latitude: 12.4964, longitude: 41.9028, user_id: User.all.sample.id)
+Offer.create!(destination: "Madrid", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1300, localisation: "Brussels", latitude: 3.7038, longitude: 40.4168, user_id: User.all.sample.id)
+Offer.create!(destination: "London", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1600, localisation: "Brussels", latitude: -0.1276, longitude: 51.5074, user_id: User.all.sample.id)
+Offer.create!(destination: "Vienna", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1100, localisation: "Brussels", latitude: 16.3738, longitude: 48.2082, user_id: User.all.sample.id)
+Offer.create!(destination: "Lisbon", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1250, localisation: "Brussels", latitude: -9.1393, longitude: 38.7223, user_id: User.all.sample.id)
+Offer.create!(destination: "Dublin", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1450, localisation: "Brussels", latitude: -6.2603, longitude: 53.3498, user_id: User.all.sample.id)
+Offer.create!(destination: "Ibiza", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1600, localisation: "Brussels", latitude: 1.4351, longitude: 38.9085, user_id: User.all.sample.id)
+Offer.create!(destination: "Athens", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1500, localisation: "Brussels", latitude: 37.9838, longitude: 23.7275, user_id: User.all.sample.id)
+Offer.create!(destination: "Tokyo", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 2000, localisation: "Brussels", latitude: 35.6895, longitude: 139.6917, user_id: User.all.sample.id)
+Offer.create!(destination: "Bali", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1500, localisation: "Brussels", latitude: -8.3405, longitude: 115.0920, user_id: User.all.sample.id)
+Offer.create!(destination: "Seoul", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1800, localisation: "Brussels", latitude: 37.5665, longitude: 126.9780, user_id: User.all.sample.id)
+Offer.create!(destination: "Kyoto", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1600, localisation: "Brussels", latitude: 35.0116, longitude: 135.7681, user_id: User.all.sample.id)
+Offer.create!(destination: "Phuket", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1200, localisation: "Brussels", latitude: 7.8804, longitude: 98.3923, user_id: User.all.sample.id)
+Offer.create!(destination: "Cairo", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1800, localisation: "Brussels", latitude: 30.0444, longitude: 31.2357, user_id: User.all.sample.id)
+Offer.create!(destination: "Marrakech", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 2000, localisation: "Brussels", latitude: 31.6295, longitude: -7.9811, user_id: User.all.sample.id)
+Offer.create!(destination: "Cape Town", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1500, localisation: "Brussels", latitude: -33.9249, longitude: 18.4241, user_id: User.all.sample.id)
+Offer.create!(destination: "Zanzibar City", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1700, localisation: "Brussels", latitude: -6.1659, longitude: 39.1990, user_id: User.all.sample.id)
+Offer.create!(destination: "Mombasa", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 2000, localisation: "Brussels", latitude: -4.0435, longitude: 39.6682, user_id: User.all.sample.id)
+Offer.create!(destination: "Prague", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1500, localisation: "Brussels", latitude: 50.0755, longitude: 14.4378, user_id: User.all.sample.id)
+Offer.create!(destination: "Budapest", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1300, localisation: "Brussels", latitude: 47.4979, longitude: 19.0402, user_id: User.all.sample.id)
+Offer.create!(destination: "Krakow", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1200, localisation: "Brussels", latitude: 50.0647, longitude: 19.9450, user_id: User.all.sample.id)
+Offer.create!(destination: "Sofia", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1000, localisation: "Brussels", latitude: 42.6977, longitude: 23.3219, user_id: User.all.sample.id)
+Offer.create!(destination: "Warsaw", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1400, localisation: "Brussels", latitude: 52.2297, longitude: 21.0122, user_id: User.all.sample.id)
+Offer.create!(destination: "Cairo, Egypt", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1500, localisation: "Brussels", latitude: 30.0444, longitude: 31.2357, user_id: User.all.sample.id)
+Offer.create!(destination: "Cape Town, South Africa", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1800, localisation: "Brussels", latitude: -33.9249, longitude: 18.4241, user_id: User.all.sample.id)
+Offer.create!(destination: "Marrakech, Morocco", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1200, localisation: "Brussels", latitude: 31.6295, longitude: -7.9811, user_id: User.all.sample.id)
+Offer.create!(destination: "Nairobi, Kenya", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1600, localisation: "Brussels", latitude: -1.2864, longitude: 36.8172, user_id: User.all.sample.id)
+Offer.create!(destination: "Zanzibar, Tanzania", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1400, localisation: "Brussels", latitude: -6.1658, longitude: 39.1990, user_id: User.all.sample.id)
+
 
 puts "Creating10 new activities..."
-PackagingActivity.create!(category: "Ultimate Nightlife",
+PackagingActivity.create!(category: "Nightlife Package",
   activity1: "Saga Ibiza Boat - Ultimate Party Cruise Adventure",
   activity2: "Pacha Ibiza - Iconic Nightlife Extravaganza",
   activity3: "Amnesia Ibiza - Unleash Your Party Spirit",
@@ -48,7 +73,7 @@ PackagingActivity.create!(category: "Ultimate Nightlife",
   picture:"nigh.png")
 
 PackagingActivity.create!(
-    category: "Ultimate Nightlife",
+    category: "Nightlife Package",
     activity1: "Sun, sand, and lively parties at Ocean Beach.",
     activity2: "Non-stop dancing to infectious beats at Hï Ibiza.",
     activity3: "Awe-inspiring dancefloor at the iconic Privilege Ibiza",
@@ -59,7 +84,7 @@ PackagingActivity.create!(
     price: 60,
     picture:"nigh.png"
   )
-PackagingActivity.create!(category: "Ultimate Nightlife",
+PackagingActivity.create!(category: "Nightlife Package",
     activity1: "Breathtaking sunsets and vibrant nightlife on Sunset Strip.",
     activity2: "Unforgettable moments at Café Mambo, sipping cocktails and enjoying music.",
     activity3: "Immersive and enchanting experiences await at Es Paradis",
@@ -70,7 +95,7 @@ PackagingActivity.create!(category: "Ultimate Nightlife",
     price: 40,
     picture:"nigh.png"
   )
-PackagingActivity.create!( category: "Thrilling Adventures",
+PackagingActivity.create!( category: "Adventure Package",
     activity1: "Kayaking in Ibiza's Coves",
     activity2: "Rock Climbing in Sa Talaia",
     activity3: "Mountain Biking in Ibiza's Trails",
@@ -85,7 +110,7 @@ PackagingActivity.create!(category: "Thrilling Adventures",activity1: "Scuba Div
     activity4: "Hiking to Es Vedrà", city: "Ibiza", rating: 4, description: "Experience adrenaline-pumping adventure activities in Ibiza, including scuba diving in the marine reserve, paragliding with breathtaking views, jet skiing in the crystal-clear waters, and hiking to the iconic Es Vedrà.",price: 120, picture:"adventure1.png")
 
 PackagingActivity.create!(
-    category: "Thrilling Adventures",
+    category: "Adventure Package",
     activity1: "Yoga and Meditation Retreat in Ibiza",
     activity2: "Wellness and Spa Retreat in Ibiza",
     activity3: "Mindfulness Retreat in Ibiza's Nature",
@@ -97,7 +122,7 @@ PackagingActivity.create!(
     picture:"Tranquil.png"
   )
 PackagingActivity.create!(
-    category: "Relaxation and Rejuvenation",
+    category: "Relaxation Package",
     activity1: "Holistic Healing Retreat in Ibiza",
     activity2: "Art and Creativity Retreat in Ibiza",
     activity3: "Transformational Retreat in Ibiza's Sacred Sites",
@@ -108,7 +133,7 @@ PackagingActivity.create!(
     price: 200,
     picture:"Tranquil.png")
 PackagingActivity.create!(
-    category: "Culinary Extravaganza",
+    category: "Culinary Package",
     activity1: "Ibiza Gourmet Food Tour",
     activity2: "Cooking Classes with Local Chefs",
     activity3: "Wine Tasting and Vineyard Tour",
@@ -119,7 +144,7 @@ PackagingActivity.create!(
     price: 80,
     picture:"paella.png")
 PackagingActivity.create!(
-    category: "Culinary Extravaganza",
+    category: "Culinary Package",
     activity1: "Ibiza Food and Wine Tasting Tour",
     activity2: "Cooking Classes with Local Chefs",
     activity3: "Farm-to-Table Dining Experience",
@@ -131,7 +156,7 @@ PackagingActivity.create!(
     picture:"paella.png")
 
   PackagingActivity.create!(
-    category: "Culinary Extravaganza",
+    category: "Culinary Package",
     activity1: "Seafood Cooking Workshop",
     activity2: "Ibiza Paella Masterclass",
     activity3: "Tapas Tasting and Wine Pairing",
@@ -143,7 +168,7 @@ PackagingActivity.create!(
     picture:"paella.png")
 
 PackagingActivity.create!(
-    category: "Relaxation and Rejuvenation",
+    category: "Relaxation Package",
     activity1: "Yoga and Meditation Retreat in Nature",
     activity2: "Spa and Wellness Retreat",
     activity3: "Holistic Healing Workshops",
@@ -155,7 +180,7 @@ PackagingActivity.create!(
     picture:"Tranquil.png"
     )
 PackagingActivity.create!(
-    category: "Creativity and Art Inspiration",
+    category: "Creativity Package",
     activity1: "Street Art Tour and Graffiti Workshop",
     activity2: "Painting and Wine Tasting Experience",
     activity3: "Artistic Photography Tour",
@@ -166,6 +191,3 @@ PackagingActivity.create!(
     price: 90,
     picture:"art.png"
     )
-# myobject.tap do |o|
-#   o.my_method
-# end
