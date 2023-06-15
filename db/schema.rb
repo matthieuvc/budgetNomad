@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_15_072645) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,15 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
 
   create_table "flights", force: :cascade do |t|
     t.float "price"
-    t.datetime "departure_outbound"
-    t.datetime "departure_inbound"
+    t.datetime "departure"
+    t.datetime "arrival"
     t.bigint "offer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "depart_location"
     t.string "arrival_location"
-    t.datetime "return_outbound"
-    t.datetime "return_inbound"
     t.index ["offer_id"], name: "index_flights_on_offer_id"
   end
 
@@ -80,6 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
     t.string "localisation"
     t.float "longitude"
     t.float "latitude"
+    t.bigint "packaging_activity_id"
+    t.index ["packaging_activity_id"], name: "index_offers_on_packaging_activity_id"
     t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
@@ -96,8 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
     t.string "activity2"
     t.string "activity3"
     t.string "activity4"
-    t.bigint "offer_id", null: false
-    t.index ["offer_id"], name: "index_packaging_activities_on_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -117,6 +115,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_125335) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "flights", "offers"
   add_foreign_key "hotels", "offers"
+  add_foreign_key "offers", "packaging_activities"
   add_foreign_key "offers", "users"
-  add_foreign_key "packaging_activities", "offers"
 end

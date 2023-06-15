@@ -5,9 +5,10 @@ require 'faker'
 puts "Cleaning hotels, flights, offersn activities and users database..."
 Hotel.destroy_all
 Flight.destroy_all
+PackagingActivity.destroy_all
 Offer.destroy_all
 User.destroy_all
-PackagingActivity.destroy_all
+
 
 # CREATING
 
@@ -20,11 +21,11 @@ User.create!(name: "User", email: "test@test.com", password: "123456")
 
 puts "Creating 5 default offers..."
 
-Offer.create!(destination: "Berlin", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1305, localisation: "Brussels", latitude: 13.4050, longitude: 52.5200, user_id: User.all.sample.id).tap do |offer|
-  offer.create_flight!(price: 285, departure_outbound: "", departure_inbound: "", depart_location: "", arrival_location: "",return_outbound: "", return_inbound: "")
-  offer.create_hotel!(price: 350, name: "", address: "", rating: 4, num_nights: 2, picture: "")
-  offer.create_activity!(category: "", rating: 5, description: "", city: "", price: 320, picture: "", activity1: "", activity2: "", activity3: "", activity4: "")
-end
+# Offer.create!(destination: "Berlin", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1305, localisation: "Brussels", latitude: 13.4050, longitude: 52.5200, user_id: User.all.sample.id).tap do |offer|
+#   offer.create_flight!(price: 285, departure_outbound: "", departure_inbound: "", depart_location: "", arrival_location: "",return_outbound: "", return_inbound: "")
+#   offer.create_hotel!(price: 350, name: "", address: "", rating: 4, num_nights: 2, picture: "")
+#   offer.create_activity!(category: "", rating: 5, description: "", city: "", price: 320, picture: "", activity1: "", activity2: "", activity3: "", activity4: "")
+# end
 
 Offer.create!(destination: "Milan", start_date: Faker::Date.in_date_period(month: Date.today.month), end_date: Faker::Date.in_date_period(month: Date.today.month + 1), budget: 1750, localisation: "Brussels", latitude: 9.1900, longitude: 45.4642, user_id: User.all.sample.id)
 
@@ -80,7 +81,7 @@ PackagingActivity.create!( category: "Thrilling Adventures",
     price: 80,
     picture:"adventure1.png"
   )
-PackagingActivity.create!(category: "Thrilling Adventures",activity1: "Scuba Diving in Ibiza's Marine Reserve", activity2: "Paragliding over Ibiza's Coast",, activity3: "Jet Skiing in the Mediterranean",
+PackagingActivity.create!(category: "Thrilling Adventures",activity1: "Scuba Diving in Ibiza's Marine Reserve", activity2: "Paragliding over Ibiza's Coast", activity3: "Jet Skiing in the Mediterranean",
     activity4: "Hiking to Es Vedrà", city: "Ibiza", rating: 4, description: "Experience adrenaline-pumping adventure activities in Ibiza, including scuba diving in the marine reserve, paragliding with breathtaking views, jet skiing in the crystal-clear waters, and hiking to the iconic Es Vedrà.",price: 120, picture:"adventure1.png")
 
 PackagingActivity.create!(
