@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="content_page">
+    <h3>Welcome to your account, <%= current_user.email %>!</h3>
+    <div>
+      <h5>Upcoming Trips</h5>
+    </div>
+  <div class="cards d-flex justify-content-between">
+    <% @offers.all.each do |offer| %>
+      <div class="card m-4" style="width: 2000vw;">
+        <img class="card-img-top" src=<%=offer.hotel[:picture]%> alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Trip to: <%= offer.destination %></h5>
+        <p class="card-text"><%= offer.start_date %> to <%= offer.end_date %></p>
+        <%= link_to "See details", offer_path(offer) %>
+      </div>
+      </div>
+      <% end %>
+    <div>
+
