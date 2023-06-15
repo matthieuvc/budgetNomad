@@ -1,20 +1,136 @@
+
+          <div>
+            <% total_price = 0 %>
+            <% departure.each do |flight| %>
+              <h6 class="mb-0"><strong>DEPARTURE</strong></h6>
+              <div class="thin-line-between-blue-card mb-2"></div>
+
+              <p><%= flight[:departure_location]%> // <%= flight[:departure]%></p>
+              <p><%= flight[:arrival_location]%> // <%=flight[:arrival]%></p>
+
+              <h6><strong>RETURN</strong></h6>
+              <div class="thin-line-between-blue-card mb-2"></div>
+
+              <% return_flight =  @return_data[@departure_data.index(departure)][departure.index(flight)] %>
+              <p><%= return_flight[:departure_location]%>// <%= return_flight[:departure]%></p>
+              <p><%= return_flight[:arrival_location]%>// <%= return_flight[:arrival]%></p>
+
+              <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
+              <% total_price = flight[:price_per_passenger] * departure.count %>
+              <% end %>
+              </div>
+
+              <div>
+                <h6>Price</h6>
+                <h4><strong><%= sprintf("%.2f", total_price)%>€</strong></h4>
+              </div>
+                <%= button_to "Select", {:controller => "flights", :action => "create", flight: {going: departure, comming: @return_data[@departure_data.index(departure)] }, offer: params[:offer]}, class: "btn_select", method: :post %>
+              </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  <% end %>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container">
 
   <div class="mt-5">
-  <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> :desert_island: Vacation starts at <strong><i> <%= @offer.start_date %> </i></strong> until <strong><i><%= @offer.end_date %></i></strong></p>
-  <div class="thin-line-between-yellow"></div>
+    <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date.strftime("%A, %b %d") %> </i></strong> until <strong><i><%= @offer.end_date.strftime("%A, %b %d") %></i></strong></p>
+    <div class="thin-line-between-yellow"></div>
   </div>
 
   <div class="d-flex">
     <div class="content_page">
 
     <h3>1º STEP: Chose your flight :airplane: </h3>
-      <% @departure_data.each do |departure| %>
+      <% total_price = 0 %>
+      <% departure.each do |flight| %>
 
         <div class="d-flex">
           <div class="flights-card mt-3">
             <div class="d-flex justify-content-between">
 
+              <%# FLIGHT INFO OF THE CARD %>
+
+              <div class="w-100">
+                <h6 class="mb-2"><strong>DEPARTURE</strong></h6>
+                <div class="d-flex ms-3 me-3 justify-content-between align-items-center">
+
+                  <div class="box-flight-content">
+                    <p>Time</p>
+                    <p>Airport</p>
+                    <p><%= flight[:departure_location]%> // <%= flight[:departure]%></p>
+                    <p><%= flight[:arrival_location]%> // <%=flight[:arrival]%></p>
+                  </div>
+
+                  <%# <button type="button" class="btn_connection" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> %>
+                    <%# @offer.flight.count > 1 ? "Connection(s)" : "Direct"%> <%# Connection(s)
+                  <%# </button> %>
+                  <%# <div class="box-flight-content">
+                    <p>Time</p>
+                    <p>Airport</p>
+                  </div> %>
+                </div>
+
+                <div class="thin-line-between mb-2"></div>
+
+                <h6 class="mb-2"><strong>RETURN</strong></h6>
+                <div class="d-flex ms-3 me-3 justify-content-between align-items-center">
+                  <div class="box-flight-content">
+                    <p>Time</p>
+                    <p>Airport</p>
+                    <% return_flight =  @return_data[@departure_data.index(departure)][departure.index(flight)] %>
+                    <p><%= return_flight[:departure_location]%>// <%= return_flight[:departure]%></p>
+                    <p><%= return_flight[:arrival_location]%>// <%= return_flight[:arrival]%></p>
+                  </div>
+
+                  <%# <button type="button" class="btn_connection" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Connection(s)
+                  </button>
+
+                  <div class="box-flight-content">
+                    <p>Time</p>
+                    <p>Airport</p>
+                  </div> %>
+
+                </div>
+              </div>
+
+              <%# PRICE PART OF THE CARD %>
               <div>
               <% total_price = 0 %>
               <% departure.each do |flight| %>
@@ -28,16 +144,19 @@
                 <p><%= return_flight[:departure_location]%>// <%= return_flight[:departure]%></p>
                 <p><%= return_flight[:arrival_location]%>// <%= return_flight[:arrival]%></p>
               </div>
+
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
               <% total_price = flight[:price_per_passenger] * departure.count %>
               <% end %>
                 <div>
+
                 <div>
                   <h6>Price</h6>
                   <h4><strong><%= sprintf("%.2f", total_price)%>€</strong></h4>
                 </div>
                   <%= button_to "Select", {:controller => "flights", :action => "create", flight: {going: departure, comming: @return_data[@departure_data.index(departure)] }, offer: params[:offer]}, class: "btn_select", method: :post %>
                 </div>
+
               </div>
 
             </div>
@@ -47,17 +166,45 @@
       <% end %>
       </div>
 
-      <div class="flights-card text-end ms-5" style="margin-top: 107px;">
-        <h5><strong> Check out your Package :moneybag:</strong></h5>
+<%# BUDGET PART ON THE SIDE %>
+
+
+      <div class="flights-card text-end ms-5 sticky-top" style="margin-top: 107px;">
+        <h5><strong> Check out your Package 💰</strong></h5>
+
         <div class="thin-line-between-red mb-4"></div>
 
         <div class="offers-card-content">
           <p> There's nothing yet...add something!</p>
           <div class="thin-line-between mb-2"></div>
-          <p class="text-grayish">Budget left: <%= @offer.budget%>€</p>
+          <p class="text-grayish">Budget left: <%= sprintf("%.2f", @offer.budget)%>€</p>
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<%# MODAL CONECTION %>
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Your connections</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        PUT THE INFO OF THE FLIGHT CONNECTION
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
     </div>
   </div>
 </div>

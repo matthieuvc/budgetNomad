@@ -1,20 +1,21 @@
 <div class="container">
 
   <div class="content_page">
+    <h3>Welcome to your account, <%= current_user.name %>!</h3>
 
-    <h3>Welcome to your account, <%= current_user.email %>!</h3>
+    <% Offer.all.each do |offer| %>
 
-    <h1>Upcoming bookings</h1>
-      <% @offers.each do |offer| %>
-      <div>
-        <%= offer.destination %>
-        <%= offer.start_date %>
-        <%= offer.end_date %>
-        <%= offer.flight.price %>
-        <%= offer.hotel.price %>
-
+      <div class="flights-card mt-3">
+        <p>Destination:<%= offer.destination %></p>
+        <p>Budget:<%= offer.budget %></p>
+        <p>Start:<%= offer.start_date %></p>
+        <p>End:<%= offer.end_date %></p>
+        <p>Localization:<%= offer.localisation %></p>
+        <p>Longitude:<%= offer.longitude %></p>
+        <p>Latitude:<%= offer.latitude %></p>
+      </div>
       <% end %>
-      <div>
+    </div>
   </div>
 
 </div>

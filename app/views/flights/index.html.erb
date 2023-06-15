@@ -1,9 +1,8 @@
 <div class="container">
 
   <div class="mt-5">
-  <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date.strftime("%A, %b %d") %> </i></strong> until <strong><i><%= @offer.end_date.strftime("%A, %b %d") %></i></strong></p>
-  <p>
-  <div class="thin-line-between-yellow"></div>
+    <p>Looking for: <strong><i><%= @offer.localisation %></i></strong> to <strong><i><%= @offer.destination %></i></strong> 🏝️ Vacation starts at <strong><i> <%= @offer.start_date.strftime("%A, %b %d") %> </i></strong> until <strong><i><%= @offer.end_date.strftime("%A, %b %d") %></i></strong></p>
+    <div class="thin-line-between-yellow"></div>
   </div>
 
   <div class="d-flex">
@@ -12,15 +11,14 @@
     <h3>1º STEP: Chose your flight :airplane: </h3>
       <% @departure_data.each do |departure| %>
 
-
         <div class="d-flex">
           <div class="flights-card mt-3">
             <div class="d-flex justify-content-between">
+
               <%# FLIGHT INFO OF THE CARD %>
+
               <div class="w-100">
-
                 <h6 class="mb-2"><strong>DEPARTURE</strong></h6>
-
                 <div class="d-flex ms-3 me-3 justify-content-between align-items-center">
 
                   <div class="box-flight-content">
@@ -36,15 +34,12 @@
                     <p>Time</p>
                     <p>Airport</p>
                   </div>
-
                 </div>
 
                 <div class="thin-line-between mb-2"></div>
 
                 <h6 class="mb-2"><strong>RETURN</strong></h6>
-
                 <div class="d-flex ms-3 me-3 justify-content-between align-items-center">
-
                   <div class="box-flight-content">
                     <p>Time</p>
                     <p>Airport</p>
@@ -58,7 +53,6 @@
                     <p>Time</p>
                     <p>Airport</p>
                   </div>
-
                 </div>
               </div>
 
@@ -76,16 +70,19 @@
                 <p><%= return_flight[:departure_location]%>// <%= return_flight[:departure]%></p>
                 <p><%= return_flight[:arrival_location]%>// <%= return_flight[:arrival]%></p>
               </div>
+
               <div class="offers-card-content-price text-end d-flex flex-column justify-content-between">
               <% total_price = flight[:price_per_passenger] * departure.count %>
               <% end %>
                 <div>
+
                 <div>
                   <h6>Price</h6>
                   <h4><strong><%= sprintf("%.2f", total_price)%>€</strong></h4>
                 </div>
                   <%= button_to "Select", {:controller => "flights", :action => "create", flight: {going: departure, comming: @return_data[@departure_data.index(departure)] }, offer: params[:offer]}, class: "btn_select", method: :post %>
                 </div>
+
               </div>
 
             </div>
