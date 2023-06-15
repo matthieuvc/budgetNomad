@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   #   end
   # end
   resources :hotels, only: [:index, :create]
-  resources :packaging_activities, only: [:index, :create, :edit]
+  resources :packaging_activities, only: [:index, :create]
   get "dashboard", to: "pages#dashboard"
 end
