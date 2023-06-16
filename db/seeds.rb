@@ -198,8 +198,8 @@ offer1 = Offer.create!(
   end_date: Date.today + 14,
   user_id: gaby.id,
   localisation: "Brussels",
-  longitude: 2.3522,
-  latitude: 48.8566,
+  longitude: 48.8566,
+  latitude: 2.3522,
   packaging_activity_id: PackagingActivity.first
 )
 
@@ -230,8 +230,8 @@ offer2 = Offer.create!(
   end_date: Date.today - 23,
   user_id: gaby.id,
   localisation: "Brussels",
-  longitude: 2.1734,
-  latitude: 41.3851,
+  longitude: 41.3851,
+  latitude: 2.1734,
   packaging_activity_id: PackagingActivity.last
 )
 
